@@ -1,0 +1,14 @@
+<div class="container">
+  <p></p>
+  <button class="btn btn-block" (click)="onNewUnity()" *ngIf="authService.isAdmin()"> Add Unity</button>
+  <table class="table table-bordered">
+    <tr>
+      <th>Unity Name</th><th>Description</th>
+    </tr>
+    <tr *ngFor="let u of unitys">
+      <td>{{u.unityName}}</td>
+      <td>{{u.description}}</td>
+    </tr>
+  </table>
+
+</div>
