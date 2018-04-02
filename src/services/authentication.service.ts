@@ -7,7 +7,7 @@ import {JwtHelper} from "angular2-jwt";
 @Injectable()
 export class AuthenticationService{
   private host: string = "http://localhost:8080";
-  private  jwtToken=null;
+  private  jwtToken;
   private roles:Array<any>;
   constructor(private http: HttpClient){}
   login(user){

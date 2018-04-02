@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ClickOutsideModule} from "ng-click-outside";
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -11,6 +12,9 @@ import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import {AuthenticationService} from "../services/authentication.service";
+import { MenubarComponent } from './menubar/menubar.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { UsermenuComponent } from './usermenu/usermenu.component';
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -25,10 +29,14 @@ const appRoutes: Routes = [
     LoginComponent,
     UnityComponent,
     AddUnityComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    MenubarComponent,
+    SidebarComponent,
+    UsermenuComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpClientModule
+    BrowserModule, RouterModule.forRoot(appRoutes), FormsModule, HttpClientModule, ClickOutsideModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]
