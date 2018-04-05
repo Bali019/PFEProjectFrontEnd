@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
+declare var $:any;
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private auth:AuthenticationService, private router: Router){
+  constructor(public auth:AuthenticationService, private router: Router){
 
   }
   title = 'app';

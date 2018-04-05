@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {JwtHelper} from "angular2-jwt";
+import {Router} from "@angular/router";
 /**
  * Created by Majdi Bali on 27/03/2018.
  */
@@ -9,7 +10,7 @@ export class AuthenticationService{
   private host: string = "http://localhost:8080";
   private  jwtToken;
   private roles:Array<any>;
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private router : Router){}
   login(user){
     return this.http.post(this.host+"/login",user,{observe:`response`});
   }
@@ -29,12 +30,19 @@ getUnitys(){
 logout(){
   this.jwtToken=null;
   localStorage.removeItem('token');
+  this.router.navigateByUrl('/login');
 }
 isAdmin(){
 for (let r of this.roles){
   if(r.authority == 'ADMIN') return true;
 }
 return false;
+}
+isConnected(){
+  if ( localStorage.getItem('token')==null){
+    return false;
+  }
+  return true;
 }
 saveUnity(unity){
   let headers= new HttpHeaders();

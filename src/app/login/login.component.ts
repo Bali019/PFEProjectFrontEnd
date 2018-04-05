@@ -12,14 +12,19 @@ mode: number = 0;
   constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
+    if(this.authService.isConnected()){
+      this.router.navigateByUrl('/user');
+    }
   }
 onLogin(user){
+
+
     this.authService.login(user)
       .subscribe(resp =>{
 let  jwt=resp.headers.get('Authorization');
 // console.log(jwt);
         this.authService.saveToken(jwt);
-        this.router.navigateByUrl('/unitys');
+        this.router.navigateByUrl('/user');
       },error2 => {
 this.mode=1;
       })

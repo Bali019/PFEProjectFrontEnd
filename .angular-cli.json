@@ -19,12 +19,16 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css","../node_modules/bootstrap/dist/css/bootstrap.css",
-        "../node_modules/flag-icon-css/css/flag-icon.css",
-        "../node_modules/font-awesome/css/font-awesome.css",
-        "../node_modules/simple-line-icons/css/simple-line-icons.css"
+        "styles.css","../node_modules/bootstrap/dist/css/bootstrap.css"
       ],
-      "scripts": ["app/sidebar/sidebar-handler.js"],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/arrive/src/arrive.js",
+        "../node_modules/moment/moment.js",
+        "../node_modules/chartist/dist/chartist.js",
+        "../node_modules/bootstrap-notify/bootstrap-notify.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

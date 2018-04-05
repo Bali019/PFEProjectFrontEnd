@@ -1,14 +1,18 @@
 
-<div class="wrapper">
-  <app-sidebar></app-sidebar>
-  <div id="content">
-    <app-menubar></app-menubar>
-    <div class="container-fluid">
-      <div class="row">
-        <app-login></app-login>
-      </div>
-    </div>
-    <!-- ends container-fluid -->
+<div class="wrapper" >
+  <div *ngIf="auth.isConnected()">
+  <div class="sidebar" data-background-color="white" data-active-color="danger">
+    <sidebar-cmp></sidebar-cmp>
   </div>
-  <!-- ends content -->
+  <div class="main-panel">
+    <navbar-cmp></navbar-cmp>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <footer-cmp></footer-cmp>
+  </div>
+</div>
+<div *ngIf="!auth.isConnected()">
+<router-outlet></router-outlet>
+</div>
 </div>
