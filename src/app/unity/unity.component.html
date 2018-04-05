@@ -1,6 +1,8 @@
 <div class="container">
+  <div class="panel col-md-10">
+  <div class="panel-body" >
   <p></p>
-  <button class="btn btn-block" (click)="onNewUnity()" *ngIf="authService.isAdmin()"> Add Unity</button>
+  <button class="btn" (click)="onNewUnity()" *ngIf="authService.isAdmin()"> Add Unity</button>
   <table class="table table-bordered">
     <tr>
       <th>Unity Name</th><th>Description</th>
@@ -10,5 +12,6 @@
       <td>{{u.description}}</td>
     </tr>
   </table>
-
+  </div>
+</div>
 </div>

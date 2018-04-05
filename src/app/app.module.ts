@@ -18,6 +18,7 @@ import {FixedPluginModule} from "./shared/fixedplugin/fixedplugin.module";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AppRoutes} from "./app.routing";
 import { NguiMapModule} from '@ngui/map';
+import {RegistrationService} from "../services/registration.service";
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -49,7 +50,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService,RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

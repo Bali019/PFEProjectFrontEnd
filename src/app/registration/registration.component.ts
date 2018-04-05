@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthenticationService} from "../../services/authentication.service";
+import {RegistrationService} from "../../services/registration.service";
+import {User} from "../models/user";
+import {Router} from "@angular/router";
 declare var $:any;
 @Component({
   selector: 'app-registration',
@@ -6,8 +10,10 @@ declare var $:any;
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-
-  constructor() { }
+user : any ;
+mode : number = 0;
+msg : string ;
+  constructor(private regService : RegistrationService, private router : Router) { }
 
   ngOnInit() {
    /**this.showNotification();*/
@@ -30,4 +36,15 @@ export class RegistrationComponent implements OnInit {
       }
     });
   }**/
+  onSave(user){
+    this.regService.saveUser(user).subscribe( resp => {
+      this.user= resp;
+      console.log("added");
+      this.router.navigateByUrl('/login');
+    }, err => {
+      this.msg = err.error.message ;
+      this.mode = 1;
+      console.log(err);
+    });
+  }
 }

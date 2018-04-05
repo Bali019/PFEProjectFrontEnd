@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-unity',
@@ -8,9 +9,12 @@ import {AuthenticationService} from "../../services/authentication.service";
 })
 export class AddUnityComponent implements OnInit {
 unity : any;
-  constructor(public authService : AuthenticationService) { }
+  constructor(public authService : AuthenticationService, private  router : Router) { }
 
   ngOnInit() {
+  if (!this.authService.isConnected()){
+    this.router.navigateByUrl('/login');
+  }
   }
   onSaveUnity( unity ){
 this.authService.saveUnity(unity).subscribe( resp => {
