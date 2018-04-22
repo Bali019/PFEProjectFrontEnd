@@ -19,6 +19,25 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 import {AppRoutes} from "./app.routing";
 import { NguiMapModule} from '@ngui/map';
 import {RegistrationService} from "../services/registration.service";
+import {UserService} from "../services/user.service";
+import { ImageComponent } from './resources/image/image.component';
+import {ImageService} from "../services/resourcesServices/image.service";
+import { ImageUploadComponent } from './resources/image/image-upload/image-upload.component';
+import {MyDatePickerModule} from "mydatepicker";
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+import {FilesService} from "../services/resourcesServices/file.service";
+import { UploadFileComponent } from './resources/fileResource/upload-file/upload-file.component';
+import { AddCodeComponent } from './resources/code-editor/add-code/add-code.component';
+import {CovalentCodeEditorModule} from "@covalent/code-editor";
+import {CodeService} from "../services/resourcesServices/code.service";
+import { AfficherCodeComponent } from './resources/code-editor/afficher-code/afficher-code.component';
+import { AddTextComponent } from './resources/text-editor/add-text/add-text.component';
+import {CovalentTextEditorModule} from "@covalent/text-editor";
+import {TextService} from "../services/resourcesServices/text.service";
+import { AfficherTextComponent } from './resources/text-editor/afficher-text/afficher-text.component';
+import {CovalentMarkdownModule} from "@covalent/markdown";
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
@@ -36,7 +55,14 @@ const appRoutes: Routes = [
     AddUnityComponent,
     RegistrationComponent,
     UserComponent,
-    DashboardComponent
+    DashboardComponent,
+    ImageComponent,
+    ImageUploadComponent,
+    UploadFileComponent,
+    AddCodeComponent,
+    AfficherCodeComponent,
+    AddTextComponent,
+    AfficherTextComponent
 
   ],
   imports: [
@@ -48,9 +74,17 @@ const appRoutes: Routes = [
     FixedPluginModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'}),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MyDatePickerModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    CovalentCodeEditorModule,
+    CovalentTextEditorModule,
+    CovalentMarkdownModule
   ],
-  providers: [AuthenticationService,RegistrationService],
+  providers: [AuthenticationService,RegistrationService,UserService,ImageService,FilesService,TextService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

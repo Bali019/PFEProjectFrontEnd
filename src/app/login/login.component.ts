@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../../services/authentication.service";
 import {Router} from "@angular/router";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,11 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 mode: number = 0;
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router, private loc : Location) { }
 
   ngOnInit() {
     if(this.authService.isConnected()){
-      this.router.navigateByUrl('/user');
+      this.loc.back();
     }
   }
 onLogin(user){

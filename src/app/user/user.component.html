@@ -1,14 +1,15 @@
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" ngClass="currentUser">
             <div class="col-lg-4 col-md-5">
                 <div class="card card-user">
                     <div class="image">
-                        <img src="assets/img/background.jpg" alt="..."/>
+                        <app-image></app-image>
                     </div>
                     <div class="content">
                         <div class="author">
                           <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
-                          <h4 class="title">Chet Faker<br />
+
+                          <h4 class="title">{{currentUser.username}}<br />
                              <a href="#"><small>@chetfaker</small></a>
                           </h4>
                         </div>
@@ -97,7 +98,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-md-7">
+
+            <div class="col-lg-8 col-md-7" >
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Edit Profile</h4>
@@ -111,31 +113,34 @@
                                         <input type="text" class="form-control border-input" disabled placeholder="Company" value="Creative Code Inc.">
                                     </div>
                                 </div>
+
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Username</label>
-                                        <input type="text" class="form-control border-input" placeholder="Username" value="michael23">
+                                        <input type="text" class="form-control border-input" placeholder="Username"  [(ngModel)]="currentUser.username" name="username" value="{{currentUser.username}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control border-input" placeholder="Email">
+                                        <label >Email address</label>
+                                        <input type="email" class="form-control border-input" [(ngModel)]="currentUser.email" placeholder="Email" name="email" value="{{currentUser.email}}">
                                     </div>
                                 </div>
+
+
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control border-input" placeholder="Company" value="Chet">
+                                        <input type="text" class="form-control border-input" placeholder="Company" name="firstName" [(ngModel)]="currentUser.firstName"  value="{{currentUser.firstName}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control border-input" placeholder="Last Name" value="Faker">
+                                        <input type="text" class="form-control border-input" placeholder="Last Name" name="lastName" [(ngModel)]="currentUser.lastName"  value="{{currentUser.lastName}}">
                                     </div>
                                 </div>
                             </div>
@@ -183,7 +188,7 @@ But that's the difference in our opinions.</textarea>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-info btn-fill btn-wd" (click)="auth.logout()">Update Profile</button>
+                                <button type="submit" (click)="onUpdateUser()" class="btn btn-info btn-fill btn-wd" >Update Profile</button>
                             </div>
                             <div class="clearfix"></div>
                         </form>

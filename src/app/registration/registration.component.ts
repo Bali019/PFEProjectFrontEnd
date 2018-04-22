@@ -37,6 +37,7 @@ msg : string ;
     });
   }**/
   onSave(user){
+
     this.regService.saveUser(user).subscribe( resp => {
       this.user= resp;
       console.log("added");
@@ -46,5 +47,7 @@ msg : string ;
       this.mode = 1;
       console.log(err);
     });
+    console.log(user);
+    console.log(this.user);
   }
 }
