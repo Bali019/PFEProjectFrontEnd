@@ -1,0 +1,89 @@
+<div class="col-lg-8 col-md-7">
+  <div class="card">
+    <div class="=row">
+    <div class="header">
+      <h4 class="title">Code editor</h4>
+      <hr>
+    </div>
+    <div class="content">
+      <div class="row">
+        <div >
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Code title</label>
+              <input type="text" class="form-control border-input" placeholder="Home Address" name="resourceName"
+                     [(ngModel)]="codeName">
+            </div>
+          </div>
+        </div>
+
+
+        <div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Description</label>
+              <textarea rows="5" class="form-control border-input" placeholder="Here can be your description"
+                        name="description" [(ngModel)]="description"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Start date</label>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="startDate"
+                            required></my-date-picker>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>End date</label>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="endDate"
+                            required></my-date-picker>
+          </div>
+        </div>
+        <div class="col-md-4">
+
+          <label>Active</label>
+          <div class="form-group">
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="active">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div  class="row">
+      <div class="col-md-6  col-md-offset-4">
+        <td>
+        <label>Select code type </label>
+        </td>
+        <td>
+        <select class="form-control"
+                [(ngModel)]="selectedLanguage"  >
+          <option  *ngFor="let type of languages" [ngValue]="type" >{{type.name}}</option>
+        </select></td>
+      </div>
+      </div>
+
+      <p></p>
+      <div>
+        <div class="col-md-12">
+          <div class="form-group">
+        <td-code-editor style="height: 170px" theme="vs-dark" flex language="{{selectedLanguage.name}}" [(ngModel)]="code" editorStyle="border:10;" flex ></td-code-editor>
+      </div>
+      </div>
+      </div>
+      <div  class="row">
+      <div class="form-group">
+        <div class="text-center">
+          <button type="submit" (click)="onSaveCode()" class="btn btn-info">Add code</button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+

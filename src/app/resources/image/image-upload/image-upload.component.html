@@ -1,0 +1,66 @@
+<div class="col-lg-8 col-md-7" >
+  <div class="card">
+    <div class="header">
+      <h4 class="title">Image</h4>
+      <hr>
+    </div>
+    <div class="content">
+      <form>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Image name</label>
+              <input type="text" class="form-control border-input" placeholder="Home Address" name="resourceName" [(ngModel)]="imageName" >
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Description</label>
+              <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" name="description" [(ngModel)]="description" ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+        <div class="form-group">
+          <label>Start date</label>
+          <my-date-picker name="mydate" (dateChanged)="onDateChanged()" [options]="myDatePickerOptions" [(ngModel)]="startDate" required></my-date-picker>
+        </div>
+      </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>End date</label>
+            <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="endDate" required></my-date-picker>
+          </div>
+        </div>
+        <div class="col-md-4">
+
+          <label>Active</label>
+          <div class="form-group">
+            <label class="switch">
+              <input type="checkbox" [(ngModel)]="active" >
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+
+        <input type="file" name="file"  (change)="onFilePicked($event)"  class="form-control border-input">
+        <label></label>
+        <div class="form-group">
+        <div class="text-center">
+          <button type="submit" (click)="onUpload()" class="btn btn-info btn-fill btn-wd" >Add image</button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

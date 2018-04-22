@@ -1,0 +1,49 @@
+<div class="col-lg-8 col-md-7">
+  <div class="card">
+    <div class="=row">
+      <div class="header">
+        <h4 class="title">Text editor</h4>
+        <hr>
+      </div>
+      <div class="content">
+        <div class="row">
+          <div >
+            <div class="col-md-5">
+              <div class="form-group">
+                <label>Text title</label>
+                <input type="text" class="form-control border-input"  name="resourceName"
+                       [(ngModel)]="textName">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <label>Active</label>
+            <div class="form-group">
+              <label class="switch">
+                <input type="checkbox"  [(ngModel)]="active" (change)="onDateChanged()">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <p></p>
+        <div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <td-text-editor  [options]="options" [(ngModel)]="text"></td-text-editor>
+            </div>
+          </div>
+        </div>
+        <div  class="row">
+          <div class="form-group">
+            <div class="text-center">
+              <button type="submit" (click)="onSaveText()" class="btn btn-info">Add text</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
