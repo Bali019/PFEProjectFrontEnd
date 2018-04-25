@@ -23,6 +23,9 @@ export class UserComponent implements OnInit{
       this.router.navigateByUrl('/login');
     }
     this.userService.getUser().subscribe(data =>{this.currentUser = data })
+ /*     for(let u of this.currentUser.unities ){
+        console.log(u.description);
+      }*/
   }
   onUpdateUser(){
      // console.log(userU);

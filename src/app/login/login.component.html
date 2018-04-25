@@ -1,4 +1,28 @@
-<p></p>
+<div *ngIf="!authService.isConnected()">
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <div>
+        <section class="login" id="login">
+          <header>
+            <h2><img class="image" src="assets/img/elearninglogo.png"/></h2>
+
+          </header>
+            <form #f="ngForm" (ngSubmit)="onLogin(f.value)"  class="login-form">
+              <div class="alert alert-danger" *ngIf="mode==1">
+                <strong>Bad credentials !</strong>
+              </div>
+            <input type="text" class="login-input" placeholder="Username" ngModel="" name="username" required autofocus/>
+            <input type="password" class="login-input" placeholder="Password" ngModel="" name="password" required/>
+            <div class="submit-container">
+              <button type="submit" class="login-button">SIGN IN</button> <button type="button" routerLink="/register" class="login-button">REGISTER</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<p></p>
 <br>
 <div *ngIf="!authService.isConnected()">
 <div class="container">
@@ -31,55 +55,4 @@
   </div>
   </div>
 </div>
-</div>
-<!--
-  <div class="container" >
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card-group">
-          <div class="card p-4">
-            <div class="card-body">
-              <div class="alert alert-danger" *ngIf="mode==1">
-                <strong>Bad credentials !</strong>
-              </div>
-              <h1>Login</h1>
-              <p class="text-muted">Sign In to your account</p>
-              <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="icon-user"></i></span>
-                <input type="text" class="form-control" placeholder="Username" ngModel="" name="username" required>
-              </div>
-              </div>
-              <div class="input-group mb-4">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="icon-lock"></i></span>
-                <input type="password" class="form-control" placeholder="Password" ngModel="" name="password" required>
-              </div>
-              </div>
-              <div class="row">
-                <div class="col-6">
-                  <button type="submit" class="btn btn-danger px-4">Login</button>
-                </div>
-                <div class="col-6 text-right">
-                  <button type="button" class="btn btn-link px-0">Forgot password?</button>
-                </div>
-              </div>
-              </form>
-            </div>
-          </div>
-          <div class="card text-white bg-danger py-5 d-md-down-none" style="width:44%">
-            <div class="card-body text-center">
-              <div>
-                <h2>Sign up</h2>
-                <p>Create your one account.</p>
-                <button type="button" class="btn btn-outline-danger btn-lg btn-danger"  routerLink="/register">Register Now!</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
--->
-
+</div>-->

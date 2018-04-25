@@ -7,7 +7,7 @@ import { FormsModule }    from '@angular/forms';
 import {UnityComponent} from "./unity/unity.component";
 import {AddUnityComponent} from "./add-unity/add-unity.component";
 import {UnitysComponent} from "./unitys.component";
-import {UnityService} from "../../services/unity.service";
+import {UnityService} from "./unity.service";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
 import {SidebarModule} from "../sidebar/sidebar.module";
@@ -24,12 +24,20 @@ import {CovalentCodeEditorModule} from "@covalent/code-editor";
 import {CovalentTextEditorModule} from "@covalent/text-editor";
 import {CovalentMarkdownModule} from "@covalent/markdown";
 import {CovalentHighlightModule} from "@covalent/highlight";
+import {UnityRouting} from "./unity.routing";
+import {ImageComponent} from "../resources/image/afficher-image/image.component";
+import {ImageUploadComponent} from "../resources/image/image-upload/image-upload.component";
+import {UploadFileComponent} from "../resources/fileResource/upload-file/upload-file.component";
+import {AfficherTextComponent} from "../resources/text-editor/afficher-text/afficher-text.component";
+import {AddCodeComponent} from "../resources/code-editor/add-code/add-code.component";
+import {AfficherCodeComponent} from "../resources/code-editor/afficher-code/afficher-code.component";
+import {AddTextComponent} from "../resources/text-editor/add-text/add-text.component";
 
 
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(UnityRouting),
     SidebarModule,
     NavbarModule,
     FooterModule,
@@ -51,7 +59,14 @@ import {CovalentHighlightModule} from "@covalent/highlight";
   declarations: [
     UnityComponent,
     AddUnityComponent,
-    UnitysComponent
+    UnitysComponent,
+    ImageComponent,
+    ImageUploadComponent,
+    UploadFileComponent,
+    AddCodeComponent,
+    AfficherCodeComponent,
+    AddTextComponent,
+    AfficherTextComponent,
   ],
   providers: [UnityService]
 })

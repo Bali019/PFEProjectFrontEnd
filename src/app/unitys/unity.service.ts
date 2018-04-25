@@ -2,11 +2,11 @@
  * Created by Majdi Bali on 22/04/2018.
  */
 import {Injectable} from "@angular/core";
-import {AuthenticationService} from "./authentication.service";
+import {AuthenticationService} from "../../services/authentication.service";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {JwtHelper} from "angular2-jwt";
 import {Observable} from "rxjs/Observable";
-import {Unity} from "../app/models/Unity";
+import {Unity} from "../models/Unity";
 @Injectable()
 export class UnityService {
   private host: string = "http://localhost:8080";

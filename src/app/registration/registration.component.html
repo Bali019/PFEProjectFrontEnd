@@ -1,4 +1,4 @@
-<p></p>
+<!--<p></p>
 <br>
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
@@ -53,4 +53,31 @@
     </div>
     </div>
   </div>
-</div>
+</div>-->
+  <div class="container">
+    <div class="col-md-6 col-md-offset-3">
+      <div>
+        <section class="login" id="login">
+          <header>
+            <h2><img class="image" src="assets/img/elearninglogo.png"/></h2>
+
+          </header>
+          <form #f="ngForm" (ngSubmit)="onSave(f.value)"  class="login-form">
+            <input type="text" class="login-input" placeholder="Username" ngModel="" name="username" required autofocus/>
+            <input type="text" class="login-input" placeholder="First name" ngModel="" name="firstName" required autofocus/>
+            <input type="text" class="login-input" placeholder="Last name" ngModel="" name="lastName" required autofocus/>
+            <input type="email" class="login-input" placeholder="example@soprahr.com" ngModel="" name="email" required autofocus/>
+            <input type="password" class="login-input" placeholder="Password" ngModel="" name="password" required/>
+            <input type="password" class="login-input" placeholder="Confirm password" ngModel="" name="ConfirmPassword" required/>
+            <div class="alert alert-danger" *ngIf="mode==1">
+              <strong>{{msg}}</strong>
+            </div>
+            <div class="submit-container">
+              <button type="submit" class="login-button" >REGISTER</button>
+              <button type="button" routerLink="/login" class="login-button" style="color: #bf032a">CANCEL</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>

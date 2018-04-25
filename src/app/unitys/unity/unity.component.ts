@@ -3,7 +3,7 @@ import {AuthenticationService} from "../../../services/authentication.service";
 import {ActivatedRouteSnapshot, Router, RouterState, RouterStateSnapshot} from "@angular/router";
 import {Location} from '@angular/common';
 import {Observable} from "rxjs/Observable";
-import {UnityService} from "../../../services/unity.service";
+import {UnityService} from "../unity.service";
 
 @Component({
   selector: 'app-unity',

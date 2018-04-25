@@ -1,3 +1,4 @@
+import {Unity} from "./Unity";
 /**
  * Created by Majdi Bali on 05/04/2018.
  */
@@ -9,4 +10,5 @@ firstName: String;
 lastName: String;
 dateInscription: Date;
 email: String;
+unities : [Unity]
 }

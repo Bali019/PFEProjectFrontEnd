@@ -20,7 +20,6 @@ import {AppRoutes} from "./app.routing";
 import { NguiMapModule} from '@ngui/map';
 import {RegistrationService} from "../services/registration.service";
 import {UserService} from "../services/user.service";
-import { ImageComponent } from './resources/image/afficher-image/image.component';
 import {ImageService} from "../services/resourcesServices/image.service";
 import { ImageUploadComponent } from './resources/image/image-upload/image-upload.component';
 import {MyDatePickerModule} from "mydatepicker";
@@ -31,35 +30,14 @@ import {FilesService} from "../services/resourcesServices/file.service";
 import { UploadFileComponent } from './resources/fileResource/upload-file/upload-file.component';
 import { AddCodeComponent } from './resources/code-editor/add-code/add-code.component';
 import {CovalentCodeEditorModule} from "@covalent/code-editor";
-import {CodeService} from "../services/resourcesServices/code.service";
-import { AfficherCodeComponent } from './resources/code-editor/afficher-code/afficher-code.component';
 import { AddTextComponent } from './resources/text-editor/add-text/add-text.component';
 import {CovalentTextEditorModule} from "@covalent/text-editor";
 import {TextService} from "../services/resourcesServices/text.service";
-import { AfficherTextComponent } from './resources/text-editor/afficher-text/afficher-text.component';
 import {CovalentMarkdownModule} from "@covalent/markdown";
-import {UnityService} from "../services/unity.service";
 import {CovalentHighlightModule} from "@covalent/highlight";
-import { UnitysComponent } from './unitys/unitys.component';
 import {UnitysModule} from "./unitys/unitys.module";
 
-const appRoutes: Routes = [
-  {path: 'register', component: RegistrationComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'add-unitys', component: AddUnityComponent},
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'user', component: UserComponent},
 
-  {path: 'unity',
-    component: UnityComponent,
-    children: [
-      {path: 'addText', component: AddTextComponent},
-      {path: 'addCode', component: AddCodeComponent},
-      {path: 'addFile', component: UploadFileComponent},
-      {path: 'addImage', component: ImageUploadComponent},
-    ]
-  }
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,15 +45,6 @@ const appRoutes: Routes = [
     RegistrationComponent,
     UserComponent,
     DashboardComponent,
-    ImageComponent,
-    ImageUploadComponent,
-    UploadFileComponent,
-    AddCodeComponent,
-    AfficherCodeComponent,
-    AddTextComponent,
-    AfficherTextComponent,
-
-
   ],
   imports: [
     BrowserModule,
