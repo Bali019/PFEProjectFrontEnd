@@ -22,12 +22,7 @@ constructor(private http : HttpClient , private auth : AuthenticationService ){}
     if (this.jwtToken==null) this.loadToken();
     return this.http.get(this.host+"/user",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
   }
-  saveUnity(unity){
 
-    let headers= new HttpHeaders();
-    headers.append('Authorization',this.jwtToken);
-    return this.http.post(this.host+"/unitys",unity);
-  }
  /* updateUser(user){
     return this.http.put(this.host+"/user",user,{ observe: 'response' })
   }*/

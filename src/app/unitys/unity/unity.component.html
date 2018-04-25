@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <h3 class="title"><i class="fa fa-circle text-info"></i>{{unity.unityName}}</h3>
+          <p class="category">{{unity.description}}</p>
+        </div>
+        <div class="content all-icons">
+          <div *ngFor="let res of unity.resource">
+            <div *ngIf="res.type_res == 'text'">
+              <div class="icon-section">
+                <app-afficher-text [textX]=res></app-afficher-text>
+              </div> <!-- Arrows Icons -->
+            </div>
+            <div *ngIf="res.type_res == 'image'">
+              <div class="icon-section">
+                <app-image [image]=res></app-image>
+              </div> <!-- Arrows Icons -->
+            </div>
+            <div *ngIf="res.type_res == 'code'">
+              <div class="icon-section">
+                <app-afficher-code [code]=res></app-afficher-code>
+              </div> <!-- Arrows Icons -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="col-md-12 col-md-offset-2">
+  <router-outlet></router-outlet>
+
+</div>
+<div class="navbar-fixed-top">
+  <div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+      <a href="#" data-toggle="dropdown">
+        <i class="fa ti-pencil-alt fa-2x" style="color: #ff3100"> </i>
+      </a>
+      <ul class="dropdown-menu">
+
+        <li class="header-title">Ajouter des composants</li>
+        <li class="adjustments-line text-center">
+        </li>
+        <li class="adjustments-line text-center">
+          <button class="btn btn-default btn-block" routerLinkActive="active" routerLink="./addImage">
+            <div class="icon-container">
+              <span class="ti-camera"></span><span class="icon-name ">Ajouter image</span>
+            </div>
+          </button>
+
+        </li>
+        <li class="adjustments-line text-center">
+          <button class="btn btn-default btn-block" routerLinkActive="active" routerLink="./addFile">
+            <div class="icon-container">
+              <span class="ti-files"></span><span class="icon-name">Ajouter fichier</span>
+            </div>
+          </button>
+        </li>
+        <li class="adjustments-line text-center">
+          <button class="btn btn-default btn-block" routerLinkActive="active" routerLink="./addText">
+            <div class="icon-container">
+              <span class="ti-smallcap"></span><span class="icon-name">Ajouter texte</span>
+            </div>
+          </button>
+        </li>
+        <li class="adjustments-line text-center">
+          <button class="btn btn-default btn-block" routerLinkActive="active" routerLink="./addCode">
+            <div class="icon-container">
+              <span class="ti-split-v-alt"></span><span class="icon-name">Ajouter code</span>
+            </div>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

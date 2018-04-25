@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ImageService} from "../../../services/resourcesServices/image.service";
+import {Component, Input, OnInit} from '@angular/core';
+import {ImageService} from "../../../../services/resourcesServices/image.service";
 import {log} from "util";
 
 @Component({
@@ -8,15 +8,15 @@ import {log} from "util";
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
-image : any ={} ;
+@Input() image : any ={} ;
   constructor(private imgService : ImageService) { }
 
   ngOnInit() {
-    this.imgService.getImage(2).subscribe(data =>{
+/*    this.imgService.getImage(2).subscribe(data =>{
       this.image=data;
     },error2 => {
       console.log("errrrrrreuuur !")
-    })
+    })*/
   }
 
 }

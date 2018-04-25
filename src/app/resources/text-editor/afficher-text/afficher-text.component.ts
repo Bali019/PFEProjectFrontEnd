@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnInit, ViewChild} from '@angular/core';
+import {Component, HostBinding, Input, OnInit, ViewChild} from '@angular/core';
 import {TdTextEditorComponent} from "@covalent/text-editor";
 import {TextService} from "../../../../services/resourcesServices/text.service";
 import {Resource} from "../../../models/resource";
@@ -9,6 +9,7 @@ import {Resource} from "../../../models/resource";
   styleUrls: ['./afficher-text.component.css']
 })
 export class AfficherTextComponent implements OnInit {
+  @Input() textX : any = {}
   text : any
   bali019
   active : boolean = false;
@@ -21,9 +22,9 @@ export class AfficherTextComponent implements OnInit {
     this.textEditor = new Resource();
   }
 
-  ngOnInit() {
-
-this.textService.getText(34).subscribe(data=>{
+  ngOnInit() {/*
+console.log(this.id + "test component")
+this.textService.getText(this.id).subscribe(data=>{
   this.textEditor = data;
   console.log(data.text+ "hello hello !")
   this.bali019=data.text
@@ -32,7 +33,9 @@ this.textService.getText(34).subscribe(data=>{
   console.log("errrrrrreuuur !")
 })
    // this.text=this.textEditor.text;this.test.text=
-console.log(this.text+ "hello hello !")
+console.log(this.text+ "hello hello !")*/
+    this.bali019=this.textX.text
+
   }
 
 

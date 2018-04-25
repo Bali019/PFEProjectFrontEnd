@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { UnityComponent } from './unity/unity.component';
-import { AddUnityComponent } from './add-unity/add-unity.component';
+import { UnityComponent } from './unitys/unity/unity.component';
+import { AddUnityComponent } from './unitys/add-unity/add-unity.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
@@ -20,11 +20,11 @@ import {AppRoutes} from "./app.routing";
 import { NguiMapModule} from '@ngui/map';
 import {RegistrationService} from "../services/registration.service";
 import {UserService} from "../services/user.service";
-import { ImageComponent } from './resources/image/image.component';
+import { ImageComponent } from './resources/image/afficher-image/image.component';
 import {ImageService} from "../services/resourcesServices/image.service";
 import { ImageUploadComponent } from './resources/image/image-upload/image-upload.component';
 import {MyDatePickerModule} from "mydatepicker";
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import {FilesService} from "../services/resourcesServices/file.service";
@@ -38,21 +38,32 @@ import {CovalentTextEditorModule} from "@covalent/text-editor";
 import {TextService} from "../services/resourcesServices/text.service";
 import { AfficherTextComponent } from './resources/text-editor/afficher-text/afficher-text.component';
 import {CovalentMarkdownModule} from "@covalent/markdown";
+import {UnityService} from "../services/unity.service";
+import {CovalentHighlightModule} from "@covalent/highlight";
+import { UnitysComponent } from './unitys/unitys.component';
+import {UnitysModule} from "./unitys/unitys.module";
 
 const appRoutes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'unitys', component: UnityComponent},
-  {path: 'add-unity', component: AddUnityComponent},
+  {path: 'add-unitys', component: AddUnityComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'user', component: UserComponent}
+  {path: 'user', component: UserComponent},
+
+  {path: 'unity',
+    component: UnityComponent,
+    children: [
+      {path: 'addText', component: AddTextComponent},
+      {path: 'addCode', component: AddCodeComponent},
+      {path: 'addFile', component: UploadFileComponent},
+      {path: 'addImage', component: ImageUploadComponent},
+    ]
+  }
 ];
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UnityComponent,
-    AddUnityComponent,
     RegistrationComponent,
     UserComponent,
     DashboardComponent,
@@ -62,7 +73,8 @@ const appRoutes: Routes = [
     AddCodeComponent,
     AfficherCodeComponent,
     AddTextComponent,
-    AfficherTextComponent
+    AfficherTextComponent,
+
 
   ],
   imports: [
@@ -82,7 +94,13 @@ const appRoutes: Routes = [
     MatSlideToggleModule,
     CovalentCodeEditorModule,
     CovalentTextEditorModule,
-    CovalentMarkdownModule
+    CovalentMarkdownModule,
+    CovalentHighlightModule,
+    MatDialogModule,
+    UnitysModule
+  ],
+  entryComponents: [
+    AddCodeComponent
   ],
   providers: [AuthenticationService,RegistrationService,UserService,ImageService,FilesService,TextService],
   bootstrap: [AppComponent]

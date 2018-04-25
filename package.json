@@ -25,6 +25,7 @@
     "@angular/router": "^5.2.0",
     "@coreui/angular": "^1.0.10",
     "@covalent/code-editor": "^1.0.0",
+    "@covalent/highlight": "^1.0.0",
     "@covalent/markdown": "^1.0.0",
     "@covalent/text-editor": "^1.0.0",
     "@ngui/map": "^0.20.2",

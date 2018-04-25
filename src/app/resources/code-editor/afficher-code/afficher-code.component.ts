@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-afficher-code',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./afficher-code.component.css']
 })
 export class AfficherCodeComponent implements OnInit {
-
+@Input() code : any = {}
   constructor() { }
 
   ngOnInit() {

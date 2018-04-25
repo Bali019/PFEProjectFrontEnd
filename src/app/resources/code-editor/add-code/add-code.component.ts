@@ -40,7 +40,7 @@ code
     this.codeEditor.startDate =this.startDate.date.year+"-"+this.startDate.date.month+"-"+this.startDate.date.day;
     this.codeEditor.endDate = this.endDate.date.year+"-"+this.endDate.date.month+"-"+this.endDate.date.day;
     this.codeEditor.active = this.active;
-    this.codeEditor.contentType = "code/"+this.selectedLanguage.name;
+    this.codeEditor.contentType = this.selectedLanguage.name;
     this.codeEditor.code = this.code;
     this.codeEditor.type_res = "code";
     console.log(this.codeEditor.code)

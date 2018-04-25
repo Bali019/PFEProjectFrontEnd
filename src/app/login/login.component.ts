@@ -10,7 +10,7 @@ import {Location} from '@angular/common';
 })
 export class LoginComponent implements OnInit {
 mode: number = 0;
-  constructor(private authService: AuthenticationService, private router: Router, private loc : Location) { }
+  constructor(public authService: AuthenticationService, private router: Router, private loc : Location) { }
 
   ngOnInit() {
     if(this.authService.isConnected()){
