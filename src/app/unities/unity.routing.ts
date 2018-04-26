@@ -7,7 +7,7 @@ import {AddCodeComponent} from "../resources/code-editor/add-code/add-code.compo
 import {UploadFileComponent} from "../resources/fileResource/upload-file/upload-file.component";
 import {ImageUploadComponent} from "../resources/image/image-upload/image-upload.component";
 import {UnityComponent} from "./unity/unity.component";
-import {UnitysComponent} from "./unitys.component";
+import {UnitiesListComponent} from "./unitiesList/unitiesList.component";
 import {AddUnityComponent} from "./add-unity/add-unity.component";
 
 
@@ -15,12 +15,12 @@ import {AddUnityComponent} from "./add-unity/add-unity.component";
 
 export const UnityRouting: Routes = [
   {
-    path: 'unitys',
-    component: UnitysComponent,
+    path: 'formation',
+    component: UnitiesListComponent,
     children: [
       {
         path: '',
-        component: UnitysComponent
+        component: UnitiesListComponent
       },
       {
         path: 'unity',

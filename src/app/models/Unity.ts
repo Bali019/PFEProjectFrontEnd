@@ -7,7 +7,6 @@ export class Unity {
   creationDate : String;
   startDate : String;
   endDate : String;
-  duration : String;
   active : Boolean;
 
 }

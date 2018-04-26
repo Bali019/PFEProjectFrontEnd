@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { UnityComponent } from './unitys/unity/unity.component';
-import { AddUnityComponent } from './unitys/add-unity/add-unity.component';
+import { UnityComponent } from './unities/unity/unity.component';
+import { AddUnityComponent } from './unities/add-unity/add-unity.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from '@angular/forms';
@@ -35,7 +35,9 @@ import {CovalentTextEditorModule} from "@covalent/text-editor";
 import {TextService} from "../services/resourcesServices/text.service";
 import {CovalentMarkdownModule} from "@covalent/markdown";
 import {CovalentHighlightModule} from "@covalent/highlight";
-import {UnitysModule} from "./unitys/unitys.module";
+import {UnitysModule} from "./unities/unitys.module";
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -45,6 +47,8 @@ import {UnitysModule} from "./unitys/unitys.module";
     RegistrationComponent,
     UserComponent,
     DashboardComponent,
+    NavbarComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

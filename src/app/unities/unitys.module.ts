@@ -6,7 +6,7 @@ import { CommonModule }   from '@angular/common';
 import { FormsModule }    from '@angular/forms';
 import {UnityComponent} from "./unity/unity.component";
 import {AddUnityComponent} from "./add-unity/add-unity.component";
-import {UnitysComponent} from "./unitys.component";
+import {UnitiesListComponent} from "./unitiesList/unitiesList.component";
 import {UnityService} from "./unity.service";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
@@ -32,6 +32,7 @@ import {AfficherTextComponent} from "../resources/text-editor/afficher-text/affi
 import {AddCodeComponent} from "../resources/code-editor/add-code/add-code.component";
 import {AfficherCodeComponent} from "../resources/code-editor/afficher-code/afficher-code.component";
 import {AddTextComponent} from "../resources/text-editor/add-text/add-text.component";
+import { UnitiesAccueilComponent } from './unities-accueil/unities-accueil.component';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import {AddTextComponent} from "../resources/text-editor/add-text/add-text.compo
   declarations: [
     UnityComponent,
     AddUnityComponent,
-    UnitysComponent,
+    UnitiesListComponent,
     ImageComponent,
     ImageUploadComponent,
     UploadFileComponent,
@@ -67,6 +68,7 @@ import {AddTextComponent} from "../resources/text-editor/add-text/add-text.compo
     AfficherCodeComponent,
     AddTextComponent,
     AfficherTextComponent,
+    UnitiesAccueilComponent,
   ],
   providers: [UnityService]
 })

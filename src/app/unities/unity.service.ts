@@ -26,10 +26,14 @@ export class UnityService {
 
     let headers= new HttpHeaders();
     headers.append('Authorization',this.jwtToken);
-    return this.http.post(this.host+"/unitys",unity);
+    return this.http.post(this.host+"/unities",unity);
   }
   getUnity(id) : Observable<Unity>  {
     if (this.jwtToken == null) this.loadToken();
     return this.http.get<Unity>(this.host + "/getUnity/"+id, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
+  }
+  getUnitiesCreatedByConnected(username) {
+    if (this.jwtToken == null) this.loadToken();
+    return this.http.get(this.host + "/userUnities/"+username, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
   }
 }

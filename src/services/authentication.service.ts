@@ -33,7 +33,7 @@ export class AuthenticationService{
   }
 getUnitys(){
     if (this.jwtToken==null) this.loadToken();
-    return this.http.get(this.host+"/unitys",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+    return this.http.get(this.host+"/unities",{headers:new HttpHeaders({'Authorization':this.jwtToken})});
 }
 logout(){
   this.jwtToken=null;
@@ -57,7 +57,7 @@ saveUnity(unity){
 
   let headers= new HttpHeaders();
   headers.append('Authorization',this.jwtToken);
-  return this.http.post(this.host+"/unitys",unity,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
+  return this.http.post(this.host+"/unities",unity,{headers:new HttpHeaders({'Authorization':this.jwtToken})});
 }
 getRole(){
 

@@ -18,7 +18,7 @@ unity : any ={};
 
 /*    this.authService.getUnitys()
       .subscribe(data=>{
-        this.unitys = data;
+        this.unities = data;
       }, error2 => {
         this.authService.logout();
         this.router.navigateByUrl('/login');
@@ -33,6 +33,6 @@ this.unityService.getUnity(3).subscribe(resp => {
 
   }
 onNewUnity(){
-    this.router.navigateByUrl('/add-unitys');
+    this.router.navigateByUrl('/add-unities');
 }
 }
