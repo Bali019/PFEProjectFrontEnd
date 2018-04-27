@@ -1,12 +1,161 @@
-<!--<div class="row col-md-6" *ngIf="authService.isAdmin()">
+<ol class="breadcrumb">
+  <li><a routerLink="/formation">Mes formations</a></li>
+  <li><span >Ajouter une formation</span></li>
+  <!--<li class="active">Data</li>-->
+</ol>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="card card-wizard" id="wizardCard">
+          <form action="" id="wizardForm" method="" novalidate="novalidate" class="ng-untouched ng-pristine ng-valid">
+            <div class="card-header text-center">
+              <h4 class="card-title">Awesome Wizard</h4>
+              <p class="category">Split a complicated flow in multiple steps</p>
+            </div>
+            <div class="card-content">
+              <ul class="nav nav-pills">
+                <li class="active" style="width: 33.3333%;"><a data-toggle="tab" href="#tab1" aria-expanded="true">First Tab</a></li>
+                <li style="width: 33.3333%;"><a data-toggle="tab" href="#tab2">Second Tab</a></li>
+                <li style="width: 33.3333%;"><a data-toggle="tab" href="#tab3">Third Tab</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                  <h5 class="text-center">Please tell us more about yourself.</h5>
+                  <div class="row">
+                    <div class="col-md-5 col-md-offset-1">
+                      <div class="form-group">
+                        <label class="control-label">
+                          First Name
+                        </label>
+                        <input class="form-control valid" name="first_name" placeholder="ex: Mike" type="text">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label class="control-label">
+                          Last Name
+                        </label>
+                        <input class="form-control valid" name="last_name" placeholder="ex: Andrew" required="true" type="text" aria-required="true">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                      <div class="form-group">
+                        <label class="control-label">
+                          Email    <span class="star">*</span>
+                        </label>
+                        <input class="form-control error" email="true" name="email" placeholder="ex: hello@creative-tim.com" type="text" aria-required="true" aria-invalid="true"><label id="email-error" class="error" for="email">This field is required.</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="tab2">
+                  <h5 class="text-center">Please give us more details about your platform.</h5>
+                  <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                      <div class="form-group">
+                        <label class="control-label">Your Website    <span class="star">*</span></label>
+                        <input class="form-control" name="website" placeholder="ex: http://www.creative-tim.com" type="text" url="true">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5 col-md-offset-1">
+                      <div class="form-group">
+                        <label class="control-label">Framework Type</label>
+                        <input class="form-control" name="framework" placeholder="ex: http://www.creative-tim.com" type="text">
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label class="control-label">
+                          Language    <span class="star">*</span>
+                        </label>
+
+                        <select class="form-control" name="cities">
+                          <option disabled="" selected="">- language -</option>
+                          <option value="ms">Bahasa Melayu</option>
+                          <option value="ca">Català</option>
+                          <option value="da">Dansk</option>
+                          <option value="de">Deutsch</option>
+                          <option value="en">English</option>
+                          <option value="es">Español</option>
+                          <option value="el">Eλληνικά</option>
+                          <option value="fr">Français</option>
+                          <option value="it">Italiano</option>
+                          <option value="hu">Magyar</option>
+                          <option value="nl">Nederlands</option>
+                          <option value="no">Norsk</option>
+                          <option value="pl">Polski</option>
+                          <option value="pt">Português</option>
+                          <option value="fi">Suomi</option>
+                          <option value="sv">Svenska</option>
+                          <option value="tr">Türkçe</option>
+                          <option value="is">Íslenska</option>
+                          <option value="cs">Čeština</option>
+                          <option value="ru">Русский</option>
+                          <option value="th">ภาษาไทย</option>
+                          <option value="zh">中文 (简体)</option>
+                          <option value="zh-TW">中文 (繁體)</option>
+                          <option value="ja">日本語</option>
+                          <option value="ko">한국어</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-5 col-md-offset-1">
+                      <div class="form-group">
+                        <label class="control-label">
+                          Bootstrap Version
+                        </label>
+
+                        <select class="form-control" name="cities">
+                          <option disabled="" selected="">- version -</option>
+                          <option value="1.1">Bootstrap 1.1</option>
+                          <option value="2.0">Bootstrap 2.0</option>
+                          <option value="3.0">Bootstrap 3.0</option>
+                          <option value="4.0">Bootstrap 4.0(alpha)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                        <label class="control-label">Price</label>
+                        <input class="form-control" name="price" placeholder="ex: 19.00" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="tab3">
+                  <h2 class="text-center text-space">Yuhuuu! <br><small> 													Click on "<b>Finish</b>" to join our community</small></h2>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn-default btn-fill btn-wd btn-back pull-left disabled" type="button" style="display: none;">Back</button>
+              <button class="btn btn-info btn-fill btn-wd btn-next pull-right" type="button">Next</button>
+              <button class="btn btn-info btn-fill btn-wd btn-finish pull-right" type="button">Finish</button>
+              <div class="clearfix"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="row col-md-6" >
   <div class="panel panel-default">
     <div class="panel-heading">Add Unity</div>
     <div class="panel-body">
-      <form #f="ngForm" (ngSubmit)="onSaveUnity(f.value)">
-       <div class="form-group">
-        <label class="control-label">Unity name: </label>
-         <input class="form-control" type="text" name="unityName" ngModel="" required/>
-       </div>
+      <form #f="ngForm"> &lt;!&ndash;(ngSubmit)="onSaveUnity(f.value)"&ndash;&gt;
+        <div class="form-group">
+          <label class="control-label">Unity name: </label>
+          <input class="form-control" type="text" name="unityName" ngModel="" required/>
+        </div>
         <div class="form-group">
           <label class="control-label">Description: </label>
           <input class="form-control" type="text" name="description" ngModel="" />
@@ -16,4 +165,3 @@
     </div>
   </div>
 </div>-->
-<button mat-button (click)="openDialog()">Open dialog</button>

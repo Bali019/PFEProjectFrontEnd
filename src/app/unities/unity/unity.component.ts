@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthenticationService} from "../../../services/authentication.service";
-import {ActivatedRouteSnapshot, Router, RouterState, RouterStateSnapshot} from "@angular/router";
+import {
+  ActivatedRoute, ActivatedRouteSnapshot, ParamMap, Router, RouterState,
+  RouterStateSnapshot
+} from "@angular/router";
 import {Location} from '@angular/common';
 import {Observable} from "rxjs/Observable";
 import {UnityService} from "../unity.service";
@@ -12,7 +15,8 @@ import {UnityService} from "../unity.service";
 })
 export class UnityComponent implements OnInit {
 unity : any ={};
-  constructor(public unityService : UnityService, private router : Router,private loc : Location) { }
+idTest : string;
+  constructor(private route: ActivatedRoute,public unityService : UnityService, private router : Router,private loc : Location) { }
 
   ngOnInit() {
 
@@ -23,9 +27,15 @@ unity : any ={};
         this.authService.logout();
         this.router.navigateByUrl('/login');
       })*/
-this.unityService.getUnity(3).subscribe(resp => {
+    this.idTest = this.route.snapshot.paramMap.get('id');
+        this.unityService.getUnity(this.idTest).subscribe(resp => {
+          this.unity=resp
+        }, error2 => {console.log("not found bali")});
+
+    console.log(this.idTest)
+/*this.unityService.getUnity(3).subscribe(resp => {
   this.unity=resp
-}, error2 => {console.log("not found bali")})
+}, error2 => {console.log("not found bali")})*/
 
 
 

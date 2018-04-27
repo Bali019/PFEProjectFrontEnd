@@ -7,17 +7,16 @@ export interface RouteInfo {
     title: string;
     icon: string;
     class: string;
+    href : string;
 }
 
 export const ROUTES: RouteInfo[] = [
-    { path: 'dashboard', title: 'Dashboard',  icon: 'ti-panel', class: '' },
-    { path: 'unities', title: 'Formation',  icon:'ti-book', class: '' },
-    { path: 'user', title: 'Profile',  icon:'ti-user', class: '' },
-    { path: 'user', title: 'Typography',  icon:'ti-text', class: '' },
-    { path: 'user', title: 'Icons',  icon:'ti-pencil-alt2', class: '' },
-    { path: 'user', title: 'Maps',  icon:'ti-map', class: '' },
-    { path: 'user', title: 'Notifications',  icon:'ti-bell', class: '' },
-    { path: 'user', title: 'Upgrade to PRO',  icon:'ti-export', class: 'active-pro' },
+    { path: 'dashboard', title: 'Dashboard',  icon: 'ti-panel', class: '' , href : ''},
+  //  { path: 'formation', title: 'Formation',  icon:'ti-book', class: '', href : '#formationSubmenu' },
+    { path: 'user', title: 'Profile',  icon:'ti-user', class: '' , href : ''},
+    { path: 'user', title: 'Typography',  icon:'ti-text', class: '' , href : ''},
+    { path: 'user', title: 'Icons',  icon:'ti-pencil-alt2', class: '', href : '' },
+    { path: 'notifications', title: 'Notifications',  icon:'ti-bell', class: '', href : '' },
 ];
 
 @Component({

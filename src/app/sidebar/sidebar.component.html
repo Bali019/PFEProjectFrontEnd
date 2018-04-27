@@ -1,48 +1,38 @@
-
-<div class="sidebar-wrapper">
+<div class="navbar-fixed-top">
+  <div class="sidebar-wrapper">
     <div class="logo">
-        <a href="https://www.creative-tim.com" class="simple-text">
-            <div class="logo-img">
-                <img src="../../assets/img/sopra.png" alt="">
-            </div>
+      <a href="https://www.creative-tim.com" class="simple-text">
+        <div class="logo-img">
+          <img src="../../assets/img/sopra.png" alt="">
+        </div>
 
-          <div><label> Sopra Hr </label></div>
-        </a>
+        <div><label> Sopra Hr </label></div>
+      </a>
     </div>
     <ul class="nav">
-            <li *ngIf="isNotMobileMenu()">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="ti-panel"></i>
-					<p>Stats</p>
-                </a>
-            </li>
-            <li class="dropdown" *ngIf="isNotMobileMenu()">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="ti-bell"></i>
-                        <p class="notification">5</p>
-    					<p>Notifications</p>
-    					<b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a href="#">Notification 1</a></li>
-                    <li><a href="#">Notification 2</a></li>
-                    <li><a href="#">Notification 3</a></li>
-                    <li><a href="#">Notification 4</a></li>
-                    <li><a href="#">Another notification</a></li>
-                  </ul>
-            </li>
-            <li *ngIf="isNotMobileMenu()">
-                <a href="#">
-					<i class="ti-settings"></i>
-					<p>Settings</p>
-                </a>
-            </li>
-            <li class="divider" *ngIf="isNotMobileMenu()"></li>
-        <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
-            <a [routerLink]="[menuItem.path]">
-                <i class="{{menuItem.icon}}"></i>
-                <p>{{menuItem.title}}</p>
-            </a>
-        </li>
+      <li class="divider"></li>
+      <li routerLinkActive="active" class="">
+        <a href="#formationSubmenu" data-toggle="collapse">
+          <i class="ti-book"></i>
+          <p>Formation <b class="caret"></b></p>
+        </a>
+        <ul class="collapse list-unstyled" id="formationSubmenu">
+          <div class="icon-section">
+          <li class="icon-container"><a  routerLink="/formation" routerLinkActive="active"><span class="icon-name" style="font-size: 16px; color: #d5000d">Mes formations</span></a></li>
+          <li><br></li>
+          <li class="icon-container"><a routerLink="/formation/addUnity" routerLinkActive="active"> <span class="icon-name" style="font-size: 16px; color: #d5000d">Ajouter formation</span></a></li>
+          <li><br></li>
+          <li class="icon-container"><a routerLink="" routerLinkActive="active"><span class="icon-name" style="font-size: 16px; color: #d5000d">Home 3</span></a></li>
+          </div>
+        </ul>
+      </li>
+      <li class="divider"></li>
+      <li *ngFor="let menuItem of menuItems" routerLinkActive="active" class="{{menuItem.class}}">
+        <a [routerLink]="[menuItem.path]" href="{{menuItem.href}}">
+          <i class="{{menuItem.icon}}"></i>
+          <p>{{menuItem.title}}</p>
+        </a>
+      </li>
     </ul>
+  </div>
 </div>

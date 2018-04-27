@@ -1,9 +1,11 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
+<ol class="breadcrumb">
+  <li><a routerLink="/formation">Mes formations</a></li>
+  <li><span >{{unity.unityName}}</span></li>
+  <!--<li class="active">Data</li>-->
+</ol>
         <div class="header">
-          <h3 class="title"><i class="fa fa-circle text-info"></i>{{unity.unityName}}</h3>
+          <h4 class="title">{{unity.unityName}}</h4>
+          <p></p>
           <p class="category">{{unity.description}}</p>
         </div>
         <div class="content all-icons">
@@ -25,15 +27,9 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-</div>
-<div class="col-md-12 col-md-offset-2">
-  <router-outlet></router-outlet>
 
-</div>
+
 <div class="navbar-fixed-top">
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">

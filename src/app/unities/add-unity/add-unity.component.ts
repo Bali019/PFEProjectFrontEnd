@@ -10,17 +10,9 @@ import {AddCodeComponent} from "../../resources/code-editor/add-code/add-code.co
   styleUrls: ['./add-unity.component.css']
 })
 export class AddUnityComponent {
-  constructor(public dialog: MatDialog) {}
+  constructor() {}
 
-  openDialog() {
-    const dialogRef = this.dialog.open(AddCodeComponent, {
-      height: '350px'
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 }
 
 

@@ -9,6 +9,7 @@ import {ImageUploadComponent} from "../resources/image/image-upload/image-upload
 import {UnityComponent} from "./unity/unity.component";
 import {UnitiesListComponent} from "./unitiesList/unitiesList.component";
 import {AddUnityComponent} from "./add-unity/add-unity.component";
+import {UnitiesAccueilComponent} from "./unities-accueil/unities-accueil.component";
 
 
 
@@ -16,14 +17,18 @@ import {AddUnityComponent} from "./add-unity/add-unity.component";
 export const UnityRouting: Routes = [
   {
     path: 'formation',
-    component: UnitiesListComponent,
+    component: UnitiesAccueilComponent,
     children: [
       {
         path: '',
         component: UnitiesListComponent
       },
       {
-        path: 'unity',
+        path: 'addUnity',
+        component: AddUnityComponent
+      },
+      {
+        path: ':id',
         component: UnityComponent,
         children: [
           {path: '', component: UnityComponent},
@@ -33,10 +38,7 @@ export const UnityRouting: Routes = [
           {path: 'addImage', component: ImageUploadComponent},
         ]
       },
-      {
-        path: 'add-unity',
-        component: AddUnityComponent
-      },
+
     ]
   },
 
