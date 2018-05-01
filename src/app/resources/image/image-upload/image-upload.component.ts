@@ -2,7 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ImageService} from "../../../../services/resourcesServices/image.service";
 import {User} from "../../../models/user";
 import {IMyDateModel, IMyDpOptions} from "mydatepicker";
-
+import {UnityComponent} from "../../../unities/unity/unity.component";
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-image-upload',
@@ -28,7 +29,7 @@ export class ImageUploadComponent implements OnInit {
   // Initialized to specific date (09.10.2018).
   //public model: any = { date: { year: 2018, month: 10, day: 9 } };
 
-  constructor(private imgService: ImageService) {
+  constructor(private imgService: ImageService,private u : UnityComponent) {
     this.d = new Date()
   //  console.log(thi)
     this.startDate = { date: { year: this.d.getFullYear(), month: this.d.getMonth(), day: this.d.getDay() } };
@@ -36,29 +37,8 @@ export class ImageUploadComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.active)
   }
 
-  onUpload() {
-
-    let x = ({"image": {"description": "X20"}})
-    const blobX = new Blob([JSON.stringify(x)], {});
-    var fd: FormData = new FormData();
-    fd.append('file', this.file);
-    fd.append('startDate',this.startDate.date.year+"-"+this.startDate.date.month+"-"+this.startDate.date.day)
-    console.log(this.startDate.date.year)
-    fd.append('endDate',this.endDate.date.year+"-"+this.endDate.date.month+"-"+this.endDate.date.day)
-  //  fd.append('endDate',this.endDate.getDate())
-    fd.append('description',this.description);
-    fd.append("active",'1');
-    fd.append('imageName',this.imageName);
-    // fd.append('startDate',new Date())
-
-
-    this.imgService.saveImage(fd).subscribe(res => {
-      console.log(res)
-    });
-  }
 
 
   onFilePicked(event: any) {
@@ -76,5 +56,70 @@ export class ImageUploadComponent implements OnInit {
     console.log( " test test " + this.active)
 
   }
+  onAddImage() {
+    swal({
+      title: 'Voulez-vous confirmer ?',
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ajouter',
+      cancelButtonText: 'Annuler',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true,
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        var fd: FormData = new FormData();
+        fd.append('unityId',this.unityId)
+        fd.append('file', this.file);
+        fd.append('startDate',this.startDate.date.year+"-"+this.startDate.date.month+"-"+this.startDate.date.day)
+        console.log(this.startDate.date.year)
+        fd.append('endDate',this.endDate.date.year+"-"+this.endDate.date.month+"-"+this.endDate.date.day)
+        fd.append('description',this.description);
+        fd.append("active",'1');
+        fd.append('imageName',this.imageName);
 
+
+        this.imgService.saveImage(fd).subscribe(res => {
+          this.u.ngOnInit();
+          console.log(res)
+        });
+
+        swal(
+          'Ajouter!',
+          'Votre resource est ajouté avec succès',
+          'success'
+        )
+      } else if (
+        // Read more about handling dismissals
+      result.dismiss === swal.DismissReason.cancel
+      ) {
+        swal(
+          'Annuler',
+          '',
+          'error'
+        )
+      }
+    })
+  }
+
+  onUpload() {
+
+    var fd: FormData = new FormData();
+    fd.append('unityId',this.unityId)
+    fd.append('file', this.file);
+    fd.append('startDate',this.startDate.date.year+"-"+this.startDate.date.month+"-"+this.startDate.date.day)
+    console.log(this.startDate.date.year)
+    fd.append('endDate',this.endDate.date.year+"-"+this.endDate.date.month+"-"+this.endDate.date.day)
+    fd.append('description',this.description);
+    fd.append("active",'1');
+    fd.append('imageName',this.imageName);
+
+
+    this.imgService.saveImage(fd).subscribe(res => {
+      console.log(res)
+    });
+  }
 }

@@ -38,18 +38,7 @@ console.log(this.unityId + " majdi bali en train de tester")
 
   }
 
-  onSaveText() {
-    this.textEditor.resourceName = this.textName;
-    this.textEditor.active = this.active;
-    this.textEditor.text = this.text;
-    this.textEditor.type_res = "text";
 
-    this.unity.unityId = this.unityId
-    this.textEditor.unity = this.unity ;
-    this.textService.saveText(this.textEditor).subscribe(resp => {
-      console.log(resp);
-    })
-  }
 
   onDateChanged() {
     console.log(" test test " + this.active)
@@ -99,6 +88,18 @@ console.log(this.unityId + " majdi bali en train de tester")
 
 
 
+  }
+  onSaveText() {
+    this.textEditor.resourceName = this.textName;
+    this.textEditor.active = this.active;
+    this.textEditor.text = this.text;
+    this.textEditor.type_res = "text";
+
+    this.unity.unityId = this.unityId
+    this.textEditor.unity = this.unity ;
+    this.textService.saveText(this.textEditor).subscribe(resp => {
+      console.log(resp);
+    })
   }
 
 }

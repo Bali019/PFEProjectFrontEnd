@@ -54,16 +54,16 @@ export class UnityComponent implements OnInit {
   }
   onDeleteResource(id){
     swal({
-
-      target: 'app-add-code',
+      title: 'Voulez-vous confirmer ?',
+      type: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Delete',
-      cancelButtonText: 'Cancel',
-      confirmButtonClass: 'btn btn-success',
-      cancelButtonClass: 'btn btn-danger',
-      buttonsStyling: false,
+      confirmButtonText: 'Supprimer',
+      cancelButtonText: 'Annuler',
+      confirmButtonClass: 'btn btn-danger',
+      cancelButtonClass: 'btn btn-success',
+      buttonsStyling: true,
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
