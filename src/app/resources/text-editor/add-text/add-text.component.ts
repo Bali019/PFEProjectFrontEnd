@@ -19,23 +19,31 @@ import {UnityComponent} from "../../../unities/unity/unity.component";
 })
 export class AddTextComponent implements OnInit {
   @Input() unityId : any;
+  @Input() textEditor : any = {}
   unity : any = {}
   text
   active: boolean = false;
   textName;
-  textEditor: any = {}
   options: any = {};
+  resourceId;
+  updateMode : any = 0;
 
 
 
   constructor(private textService: ImageService,private u : UnityComponent) {
     this.unity = new Unity();
-    this.textEditor = new Resource;
+   // this.textEditor = new Resource;
+
   }
 
   ngOnInit() {
-console.log(this.unityId + " majdi bali en train de tester")
-
+    this.textName = this.textEditor["resourceName"];
+    this.active = this.textEditor["active"];
+    this.text = this.textEditor["text"];
+    this.resourceId = this.textEditor["resourceId"]
+    if (this.resourceId != null){
+      this.updateMode = 1 ;
+    }
   }
 
 
@@ -66,6 +74,51 @@ console.log(this.unityId + " majdi bali en train de tester")
         this.unity.unityId = this.unityId
         this.textEditor.unity = this.unity ;
         this.textService.saveText(this.textEditor).subscribe(resp => {
+          this.u.ngOnInit();
+          console.log(resp);
+        })
+        swal(
+          'Ajouter!',
+          'Votre resource est ajouté avec succès',
+          'success'
+        )
+      } else if (
+        // Read more about handling dismissals
+      result.dismiss === swal.DismissReason.cancel
+      ) {
+        swal(
+          'Annuler',
+          '',
+          'error'
+        )
+      }
+    })
+
+
+
+  }
+  onUpdateText(){
+    swal({
+      title: 'Voulez-vous confirmer ?',
+      type: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ajouter',
+      cancelButtonText: 'Annuler',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true,
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.textEditor.resourceName = this.textName;
+        this.textEditor.active = this.active;
+        this.textEditor.text = this.text;
+        this.textEditor.type_res = "text";
+        this.unity.unityId = this.unityId
+        this.textEditor.unity = this.unity ;
+        this.textService.updateResource(this.textEditor).subscribe(resp => {
           this.u.ngOnInit();
           console.log(resp);
         })

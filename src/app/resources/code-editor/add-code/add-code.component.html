@@ -9,7 +9,7 @@
         <div class="col-md-12">
           <div class="form-group">
             <label>Code title</label>
-            <input type="text" class="form-control border-input" placeholder="Home Address" name="resourceName"
+            <input type="text" class="form-control border-input" placeholder="Titre..." name="resourceName"
                    [(ngModel)]="codeName">
           </div>
         </div>
@@ -19,7 +19,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Description</label>
-              <textarea rows="5" class="form-control border-input" placeholder="Here can be your description"
+              <textarea rows="5" class="form-control border-input" placeholder="votre description ici..."
                         name="description" [(ngModel)]="description"></textarea>
             </div>
           </div>
@@ -72,9 +72,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="form-group">
+        <div class="form-group" *ngIf="updateMode==0">
           <div class="text-center">
-            <button type="submit" (click)="onAddCode()" class="btn btn-info">Add code</button>
+            <button type="submit" (click)="onAddCode()" class="btn btn-info">Ajouter code</button>
+          </div>
+        </div>
+        <div class="form-group" *ngIf="updateMode==1">
+          <div class="text-center">
+            <button type="submit" (click)="onUpdateCode()" class="btn btn-info">Modifier code</button>
           </div>
         </div>
       </div>

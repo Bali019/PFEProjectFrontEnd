@@ -55,5 +55,10 @@ deleteResource(id){
   headers.append('Authorization',this.jwtToken);
   return this.http.delete(this.host+"/deleteRes/"+id)
 }
+updateResource(resource){
+  let headers= new HttpHeaders();
+  headers.append('Authorization',this.jwtToken);
+  return this.http.put(this.host+"/updateRes",resource)
+}
 
 }

@@ -72,10 +72,12 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
     MatDialogModule,
     UnitysModule,
     SweetAlert2Module.forRoot({
-      buttonsStyling: false,
-      customClass: 'modal-content',
-      confirmButtonClass: 'btn btn-primary',
-      cancelButtonClass: 'btn'
+      showConfirmButton : false,
+      showCancelButton: false,
+      showCloseButton: true,
+      cancelButtonColor: '#d33',
+      cancelButtonClass: 'btn btn-success',
+      buttonsStyling : true
     })
 
   ],
