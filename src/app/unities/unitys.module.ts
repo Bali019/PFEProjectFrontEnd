@@ -33,6 +33,7 @@ import {AddCodeComponent} from "../resources/code-editor/add-code/add-code.compo
 import {AfficherCodeComponent} from "../resources/code-editor/afficher-code/afficher-code.component";
 import {AddTextComponent} from "../resources/text-editor/add-text/add-text.component";
 import { UnitiesAccueilComponent } from './unities-accueil/unities-accueil.component';
+import {SweetAlert2Module} from "@toverux/ngx-sweetalert2";
 
 
 @NgModule({
@@ -55,7 +56,9 @@ import { UnitiesAccueilComponent } from './unities-accueil/unities-accueil.compo
     CovalentTextEditorModule,
     CovalentMarkdownModule,
     CovalentHighlightModule,
-    MatDialogModule
+    MatDialogModule,
+    SweetAlert2Module.forRoot()
+
   ],
   declarations: [
     UnityComponent,

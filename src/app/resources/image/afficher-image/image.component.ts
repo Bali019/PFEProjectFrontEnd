@@ -9,6 +9,7 @@ import {log} from "util";
 })
 export class ImageComponent implements OnInit {
 @Input() image : any ={} ;
+
   constructor(private imgService : ImageService) { }
 
   ngOnInit() {

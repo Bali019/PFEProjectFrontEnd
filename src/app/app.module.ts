@@ -38,7 +38,7 @@ import {CovalentHighlightModule} from "@covalent/highlight";
 import {UnitysModule} from "./unities/unitys.module";
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-
+import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -70,7 +70,14 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
     CovalentMarkdownModule,
     CovalentHighlightModule,
     MatDialogModule,
-    UnitysModule
+    UnitysModule,
+    SweetAlert2Module.forRoot({
+      buttonsStyling: false,
+      customClass: 'modal-content',
+      confirmButtonClass: 'btn btn-primary',
+      cancelButtonClass: 'btn'
+    })
+
   ],
   entryComponents: [
     AddCodeComponent

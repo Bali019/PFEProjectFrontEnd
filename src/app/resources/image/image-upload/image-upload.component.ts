@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ImageService} from "../../../../services/resourcesServices/image.service";
 import {User} from "../../../models/user";
 import {IMyDateModel, IMyDpOptions} from "mydatepicker";
@@ -10,6 +10,7 @@ import {IMyDateModel, IMyDpOptions} from "mydatepicker";
   styleUrls: ['./image-upload.component.css']
 })
 export class ImageUploadComponent implements OnInit {
+  @Input() unityId : any;
   image: any = {};
   file;
   fd: any;

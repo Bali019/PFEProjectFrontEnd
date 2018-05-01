@@ -1,7 +1,9 @@
+import {Unity} from "./Unity";
 /**
  * Created by Majdi Bali on 19/04/2018.
  */
 export class Resource {
+  resourceId : number;
     resourceName : String;
     description : String;
     creationDate : String;
@@ -13,4 +15,5 @@ export class Resource {
     code : String;
     text : String
   type_res : String;
+    unity : Unity
 }

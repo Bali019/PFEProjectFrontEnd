@@ -50,6 +50,10 @@ export class ImageService {
     headers.append('Authorization',this.jwtToken);
     return this.http.post<Resource>(this.host+"/addText",text);
   }
-
+deleteResource(id){
+  let headers= new HttpHeaders();
+  headers.append('Authorization',this.jwtToken);
+  return this.http.delete(this.host+"/deleteRes/"+id)
+}
 
 }
