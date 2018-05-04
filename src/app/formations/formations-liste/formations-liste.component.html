@@ -1,0 +1,18 @@
+<ol class="breadcrumb">
+  <li><span >Mes formations</span></li>
+  <!--<li class="active">Data</li>-->
+</ol>
+<div class="row">
+  <div *ngFor="let a of formations">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img class="image zoom" src="assets\img\test.jpg" alt="...">
+        <div class="caption">
+          <h3>{{a.formationName}}</h3>
+          <p>{{a.description}}</p>
+          <p><a [routerLink]="[a.formationId]" class="btn btn-primary" role="button">Consulter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
