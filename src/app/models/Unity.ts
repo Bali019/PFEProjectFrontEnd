@@ -1,3 +1,5 @@
+import {Formation} from "./Formation";
+import {Resource} from "./resource";
 /**
  * Created by Majdi Bali on 19/04/2018.
  */
@@ -9,5 +11,7 @@ export class Unity {
   startDate : String;
   endDate : String;
   active : Boolean;
-
+  orderU : number
+  formation : Formation
+  resource: [Resource]
 }

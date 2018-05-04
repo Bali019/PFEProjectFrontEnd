@@ -39,6 +39,8 @@ import {UnitysModule} from "./unities/unitys.module";
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
+import { AddFormationComponent } from './formations/add-formation/add-formation.component';
+import {FormationModule} from "./formations/formation.module";
 
 @NgModule({
   declarations: [
@@ -71,6 +73,7 @@ import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
     CovalentHighlightModule,
     MatDialogModule,
     UnitysModule,
+    FormationModule,
     SweetAlert2Module.forRoot({
       showConfirmButton : false,
       showCancelButton: false,

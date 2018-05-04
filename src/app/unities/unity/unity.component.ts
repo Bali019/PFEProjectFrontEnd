@@ -1,50 +1,51 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {AuthenticationService} from "../../../services/authentication.service";
 import {
   ActivatedRoute, ActivatedRouteSnapshot, ParamMap, Router, RouterState,
   RouterStateSnapshot
 } from "@angular/router";
 import {Location} from '@angular/common';
-import {Observable} from "rxjs/Observable";
 import {UnityService} from "../unity.service";
 import {ImageService} from "../../../services/resourcesServices/image.service";
 import swal from 'sweetalert2';
-import {AddCodeComponent} from "../../resources/code-editor/add-code/add-code.component";
+import {FormationService} from "../../formations/formation.service";
 
 @Component({
   selector: 'app-unity',
   templateUrl: './unity.component.html',
-  styleUrls: ['./unity.component.css']
+  styleUrls: ['./unity.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class UnityComponent implements OnInit {
+  @Input() test: any = {};
+  idTest
+  idFormation
   unity: any = {};
-  idTest: string;
+  dataLoaded: any = 0;
+  orderU: number;
 
   constructor(private route: ActivatedRoute, public unityService: UnityService,
               private router: Router, private loc: Location,
               private resourceService: ImageService) {
-  }
+    this.idTest = this.route.snapshot.paramMap.get('idU');
 
-  ngOnInit() {
-
-    /*    this.authService.getUnitys()
-     .subscribe(data=>{
-     this.unities = data;
-     }, error2 => {
-     this.authService.logout();
-     this.router.navigateByUrl('/login');
-     })*/
-    this.idTest = this.route.snapshot.paramMap.get('id');
+    console.log(this.idTest + " test unity id " + " l id de la formation =>" + this.idFormation)
     this.unityService.getUnity(this.idTest).subscribe(resp => {
-      this.unity = resp
+      this.unity = resp;
+      this.orderU = this.unity["orderU"];
+
     }, error2 => {
       console.log("not found bali")
     });
 
-    console.log(this.idTest)
-    /*this.unityService.getUnity(3).subscribe(resp => {
-     this.unity=resp
-     }, error2 => {console.log("not found bali")})*/
+
+  }
+
+  ngOnInit() {
+
+    if (this.unity != null) {
+      this.dataLoaded = 1;
+    }
 
 
   }
@@ -52,7 +53,8 @@ export class UnityComponent implements OnInit {
   onNewUnity() {
     this.router.navigateByUrl('/add-unities');
   }
-  onDeleteResource(id){
+
+  onDeleteResource(id) {
     swal({
       title: 'Voulez-vous confirmer ?',
       type: 'question',
@@ -89,6 +91,6 @@ export class UnityComponent implements OnInit {
     })
 
 
-
   }
+
 }

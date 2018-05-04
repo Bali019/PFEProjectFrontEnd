@@ -7,11 +7,12 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {JwtHelper} from "angular2-jwt";
 import {Observable} from "rxjs/Observable";
 import {Unity} from "../models/Unity";
+import {Formation} from "../models/Formation";
 @Injectable()
-export class UnityService {
+export class FormationService {
   private host: string = "http://localhost:8080";
   private jwtToken;
-
+  private idFormation;
   constructor(private http: HttpClient, private auth: AuthenticationService) {
   }
 
@@ -22,22 +23,27 @@ export class UnityService {
     console.log(this.jwtToken);
   }
 
-  saveUnity(unity){
+  saveUnity(Formation){
 
     let headers= new HttpHeaders();
     headers.append('Authorization',this.jwtToken);
-    return this.http.post(this.host+"/unities",unity);
+    return this.http.post(this.host+"/Formations",Formation);
   }
-  getUnity(id) : Observable<Unity>  {
+  getFormation(id) : Observable<Formation>  {
     if (this.jwtToken == null) this.loadToken();
-    return this.http.get<Unity>(this.host + "/getUnity/"+id, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
+    return this.http.get<Formation>(this.host + "/getFormationsById/"+id, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
   }
-  getUnitiesCreatedByConnected(username) {
+  getFormationsCreatedByConnected(username) {
     if (this.jwtToken == null) this.loadToken();
-    return this.http.get(this.host + "/userUnities/"+username, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
+    return this.http.get(this.host + "/userFormations/"+username, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
   }
-  getFormationUnities(id) {
-    if (this.jwtToken == null) this.loadToken();
-    return this.http.get(this.host + "/formationUnities/"+id, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
+
+  public setFormationId(value){
+    this.idFormation = value;
   }
+
+  public getFormationId(){
+    return this.idFormation;
+  }
+
 }

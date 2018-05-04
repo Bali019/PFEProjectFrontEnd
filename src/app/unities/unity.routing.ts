@@ -16,7 +16,7 @@ import {UnitiesAccueilComponent} from "./unities-accueil/unities-accueil.compone
 
 export const UnityRouting: Routes = [
   {
-    path: 'formation',
+    path: 'unities',
     component: UnitiesAccueilComponent,
     children: [
       {
