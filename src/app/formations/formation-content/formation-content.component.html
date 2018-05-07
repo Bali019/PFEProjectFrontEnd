@@ -1,83 +1,45 @@
+<ol class="breadcrumb">
+  <li><a routerLink="/formation">Mes formations</a></li>
+  <li><span>{{formation.formationName}}</span></li>
+  <!--<li class="active">Data</li>-->
+</ol>
 
 
+<ul class="nav nav-tabs" role="tablist">
+  <li *ngFor="let u of unities; let i = index" [ngClass]="{'active': i == 0}"
+      role="presentation">
+    <a [attr.href]="'#collapseOne2_' + i"
+       [attr.aria-controls]="u.unityName"
+       role="tab"
+       data-toggle="tab">
+      {{u.unityName}}
+    </a>
+  </li>
 
+</ul>
+<div class="tab-content">
 
-
-
-
-<!--<div class="toggle-options">
-  <button mat-button class="mat-primary mat-raised-button" (click)="toggleMobileStepText()">Toggle MobileStepText</button>
-  <button mat-button class="mat-primary mat-raised" (click)="toggleVertical()">Toggle Vertical</button>
-  <button mat-button class="mat-primary mat-raised" (click)="toggleLinear()">Toggle Linear</button>
-  <button mat-button class="mat-primary mat-raised" (click)="toggleAlternative()">Toggle Alternative</button>
-  <button mat-button class="mat-primary mat-raised" (click)="showError()">Show error</button>
-  <button mat-button class="mat-primary mat-raised" (click)="clearError()">Clear error</button>
-
+  <div class="tab-pane"   *ngFor="let u of unities; let i = index"
+       [attr.id]="'collapseOne2_' + i"  [ngClass]="{'active': i == 0}">
+    <app-unity [test]="u"></app-unity>
+  </div>
 </div>
-<ngx-stepper #stepperDemo="stepper" [options]="options">
-  <ngx-step [label]="'Select a campaign'">
-    <ngx-step-body>
-      <p>Test</p>
-    </ngx-step-body>
-    <ngx-step-actions>
-      <button mat-button class="mat-primary mat-raised" (click)="selectCampaign()">Continue</button>
-      <button mat-button class="mat-primary" (click)="stepperDemo.back()">Cancel</button>
-    </ngx-step-actions>
-  </ngx-step>
-  <ngx-step [label]="'Create an group'">
-    <ngx-step-body>
-      <p>Slouma</p>
-    </ngx-step-body>
-    <ngx-step-actions>
-      <button mat-button class="mat-primary mat-raised" (click)="stepperDemo.next()">Continue</button>
-      <button mat-button class="mat-primary" (click)="stepperDemo.back()">Back</button>
-    </ngx-step-actions>
-  </ngx-step>
-  <ngx-step [label]="'Create an ad'">
-    <ngx-step-body>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-    </ngx-step-body>
-    <ngx-step-actions>
-      <button mat-button class="mat-primary mat-raised" (click)="stepperDemo.next()">Continue</button>
-      <button mat-button class="mat-primary" (click)="stepperDemo.back()">Back</button>
-    </ngx-step-actions>
-  </ngx-step>
-  <ngx-step [label]="'Publish the ad'">
-    <ngx-step-body>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur nobis saepe facere suscipit atque,
-        sapiente, natus mollitia ipsum odit accusamus repellendus deserunt. Odio sit similique, labore maxime
-        voluptatibus, eaque autem!</p>
-    </ngx-step-body>
-    <ngx-step-actions>
-      <button mat-button class="mat-primary mat-raised" (click)="stepperDemo.next()">Complete</button>
-      <button mat-button class="mat-primary" (click)="stepperDemo.back()">Back</button>
-    </ngx-step-actions>
-  </ngx-step>
-</ngx-stepper>-->
+
+
+<!--<div class="bs-example">
+  <div class="panel-group" [attr.id]="'accordion_' + i" *ngFor="let message of unities; let i = index;" [ngClass]="{'active': i == 0}">
+    <div class="panel panel-default" >
+      <div class="panel-heading" >
+        <h4 class="panel-title">
+          <a data-toggle="collapse" [attr.data-parent]="'#accordion_' + i" [attr.href]="'#collapseOne_' + i">{{ message.unityName }} </a>
+        </h4>
+      </div>
+      <div [attr.id]="'collapseOne_' + i" class="panel-collapse collapse in" >
+        <div class="panel-body">
+          <app-unity [test]="message"></app-unity>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>-->
 

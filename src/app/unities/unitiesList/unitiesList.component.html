@@ -1,7 +1,7 @@
 <nav aria-label="...">
   <ul class="pager">
-    <li ><a href="#" >Previous</a></li>
-    <li><a href="#">Next</a></li>
+    <li ><button [routerLink]=[previousU] class="btn btn-info btn-fill" [disabled]="previousActivation==0"><i class=" glyphicon glyphicon-arrow-left" ></i>&ensp;Previous</button></li>
+    <li ><button (click)="initialiseInvites()" routerLinkActive="!active" class="btn btn-info btn-fill" [disabled]="nextActivation==0">Next&ensp;<i class=" glyphicon glyphicon-arrow-right" ></i></button></li>
   </ul>
 </nav>
 

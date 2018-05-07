@@ -34,7 +34,7 @@ import {UnityComponent} from "../unities/unity/unity.component";
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(FormationRouting),
+    RouterModule.forRoot(FormationRouting, {onSameUrlNavigation: 'reload'}),
     SidebarModule,
     NavbarModule,
     FooterModule,

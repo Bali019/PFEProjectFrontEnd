@@ -31,4 +31,9 @@ constructor(private http : HttpClient , private auth : AuthenticationService ){}
 const response = this.http.put(this.host+"/user2", user, {headers:new HttpHeaders({'Authorization':this.jwtToken})}).toPromise();
 return response;
   }
+  updateOnLogin(username : string){
+
+    const response = this.http.put(this.host+"/userLogin", username).toPromise();
+    return response;
+  }
 }

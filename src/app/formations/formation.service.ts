@@ -31,7 +31,7 @@ export class FormationService {
   }
   getFormation(id) : Observable<Formation>  {
     if (this.jwtToken == null) this.loadToken();
-    return this.http.get<Formation>(this.host + "/getFormationsById/"+id, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
+    return this.http.get<Formation>(this.host + "/getFormation/"+id, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
   }
   getFormationsCreatedByConnected(username) {
     if (this.jwtToken == null) this.loadToken();
@@ -44,6 +44,10 @@ export class FormationService {
 
   public getFormationId(){
     return this.idFormation;
+  }
+  getFormations() {
+    if (this.jwtToken == null) this.loadToken();
+    return this.http.get(this.host + "/getFormations", {headers: new HttpHeaders({'Authorization': this.jwtToken})});
   }
 
 }

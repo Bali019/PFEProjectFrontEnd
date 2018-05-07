@@ -9,6 +9,7 @@ import {UnityService} from "../unity.service";
 import {ImageService} from "../../../services/resourcesServices/image.service";
 import swal from 'sweetalert2';
 import {FormationService} from "../../formations/formation.service";
+import {Unity} from "../../models/Unity";
 
 @Component({
   selector: 'app-unity',
@@ -17,7 +18,7 @@ import {FormationService} from "../../formations/formation.service";
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class UnityComponent implements OnInit {
-  @Input() test: any = {};
+  @Input() test : Unity
   idTest
   idFormation
   unity: any = {};
@@ -27,22 +28,12 @@ export class UnityComponent implements OnInit {
   constructor(private route: ActivatedRoute, public unityService: UnityService,
               private router: Router, private loc: Location,
               private resourceService: ImageService) {
+
     this.idTest = this.route.snapshot.paramMap.get('idU');
-
-    console.log(this.idTest + " test unity id " + " l id de la formation =>" + this.idFormation)
-    this.unityService.getUnity(this.idTest).subscribe(resp => {
-      this.unity = resp;
-      this.orderU = this.unity["orderU"];
-
-    }, error2 => {
-      console.log("not found bali")
-    });
-
-
   }
 
   ngOnInit() {
-
+    this.unity=this.test;
     if (this.unity != null) {
       this.dataLoaded = 1;
     }
@@ -50,8 +41,13 @@ export class UnityComponent implements OnInit {
 
   }
 
-  onNewUnity() {
-    this.router.navigateByUrl('/add-unities');
+  onUpdate() {
+    this.unityService.getUnity(this.unity['unityId']).subscribe(resp => {
+      this.unity = resp;
+
+    }, error2 => {
+      console.log("not found bali")
+    });
   }
 
   onDeleteResource(id) {
@@ -71,7 +67,7 @@ export class UnityComponent implements OnInit {
       if (result.value) {
         this.resourceService.deleteResource(id).subscribe(res => {
           console.log(res)
-          this.ngOnInit()
+          this.onUpdate()
         })
         swal(
           'Deleted!',

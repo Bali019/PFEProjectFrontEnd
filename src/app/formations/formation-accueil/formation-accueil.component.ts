@@ -35,13 +35,7 @@ export class FormationAccueilComponent implements OnInit {
     })
     this.unityService.getFormationUnities(this.idFormation).subscribe(resp=>{
       this.unities=resp;
-      let i=0;
-      for (let u of this.unities){
 
-        this.firstU[i] = u.unityId
-        i++;
-      }
-      console.log(this.firstU[0]+" bali majdi en ...")
     })
   }
 

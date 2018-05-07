@@ -33,7 +33,7 @@ export const FormationRouting: Routes = [
       },
       {
         path: 'unities',
-        component: UnitiesListComponent,
+        component: FormationContentComponent,
       },
 
       {
@@ -47,7 +47,42 @@ export const FormationRouting: Routes = [
       },
 
     ]
-  }
+  },
+  {
+    path: 'formationencours',
+    component: AddFormationComponent,
+    children: [
+      {
+        path: '',
+        component: FormationsListeComponent
+      },
+    ]
+  },
+  {
+    path: 'formationencours/:idF',
+    component: AddFormationComponent,
+    children: [
+      {
+        path: '',
+        component: FormationAccueilComponent
+      },
+      {
+        path: 'unities',
+        component: FormationContentComponent,
+      },
+
+      {
+        path: 'unities/addUnity',
+        component: AddUnityComponent
+      },
+
+      {
+        path: 'unities/:idU',
+        component: UnityComponent,
+      },
+
+    ]
+  },
 
 
 ]

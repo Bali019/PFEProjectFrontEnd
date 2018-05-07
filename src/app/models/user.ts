@@ -10,5 +10,6 @@ firstName: String;
 lastName: String;
 dateInscription: Date;
 email: String;
-unities : [Unity]
+dateLastConnexion : Date
+  unities : [Unity];
 }

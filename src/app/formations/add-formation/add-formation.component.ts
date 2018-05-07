@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {FormationService} from "../formation.service";
 
 @Component({
   selector: 'app-add-formation',
@@ -8,7 +9,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 })
 export class AddFormationComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
