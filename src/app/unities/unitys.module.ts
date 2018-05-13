@@ -34,10 +34,11 @@ import {AfficherCodeComponent} from "../resources/code-editor/afficher-code/affi
 import {AddTextComponent} from "../resources/text-editor/add-text/add-text.component";
 import { UnitiesAccueilComponent } from './unities-accueil/unities-accueil.component';
 import {SweetAlert2Module} from "@toverux/ngx-sweetalert2";
+import { UpdateUnityComponent } from './update-unity/update-unity.component';
 
 
 @NgModule({
-  exports: [UnityComponent],
+  exports: [UnityComponent,AddUnityComponent],
   imports: [
     BrowserModule,
     RouterModule,
@@ -73,6 +74,7 @@ import {SweetAlert2Module} from "@toverux/ngx-sweetalert2";
     AddTextComponent,
     AfficherTextComponent,
     UnitiesAccueilComponent,
+    UpdateUnityComponent,
   ],
   providers: [UnityService]
 })

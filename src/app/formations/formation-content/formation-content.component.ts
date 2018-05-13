@@ -39,6 +39,8 @@ export class FormationContentComponent implements OnInit {
         this.unities = this.formation.unities
       })
   }
-
+  tops(){
+    window.scrollTo(0, 0);
+  }
 
 }

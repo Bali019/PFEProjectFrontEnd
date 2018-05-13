@@ -7,25 +7,29 @@ import {UnitiesListComponent} from "../unities/unitiesList/unitiesList.component
 import {AddUnityComponent} from "../unities/add-unity/add-unity.component";
 import {UnityComponent} from "../unities/unity/unity.component";
 import {FormationsListeComponent} from "./formations-liste/formations-liste.component";
-import {AddFormationComponent} from "./add-formation/add-formation.component";
 import {FormationAccueilComponent} from "./formation-accueil/formation-accueil.component";
 import {FormationContentComponent} from "./formation-content/formation-content.component";
+import {FormationComponent} from "./formation.component";
+import {AddFormationComponent} from "./add-formation/add-formation.component";
 
 
 export const FormationRouting: Routes = [
   {
     path: 'formation',
-    component: AddFormationComponent,
+    component: FormationComponent,
     children: [
       {
         path: '',
         component: FormationsListeComponent
-      },
+      }, {
+        path: 'addFormation',
+        component: AddFormationComponent
+      }
     ]
   },
   {
     path: 'formation/:idF',
-    component: AddFormationComponent,
+    component: FormationComponent,
     children: [
       {
         path: '',
@@ -37,8 +41,8 @@ export const FormationRouting: Routes = [
       },
 
       {
-        path: 'unities/addUnity',
-        component: AddUnityComponent
+        path: 'updateUnity/:idU',
+        component: UnityComponent
       },
 
       {
@@ -50,7 +54,7 @@ export const FormationRouting: Routes = [
   },
   {
     path: 'formationencours',
-    component: AddFormationComponent,
+    component: FormationComponent,
     children: [
       {
         path: '',
@@ -60,7 +64,7 @@ export const FormationRouting: Routes = [
   },
   {
     path: 'formationencours/:idF',
-    component: AddFormationComponent,
+    component: FormationComponent,
     children: [
       {
         path: '',

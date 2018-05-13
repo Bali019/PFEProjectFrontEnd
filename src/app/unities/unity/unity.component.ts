@@ -18,7 +18,7 @@ import {Unity} from "../../models/Unity";
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class UnityComponent implements OnInit {
-  @Input() test : Unity
+  @Input() test: Unity
   idTest
   idFormation
   unity: any = {};
@@ -33,21 +33,43 @@ export class UnityComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.unity=this.test;
-    if (this.unity != null) {
-      this.dataLoaded = 1;
-    }
+    let url = this.router.url;
+    console.log(url)
+    if (this.idTest != null) {
+      this.unityService.getUnity(this.idTest).subscribe(resp => {
+        this.unity = resp;
 
+      }, error2 => {
+        console.log("not found bali")
+      });
+      if (this.unity != null) {
+        this.dataLoaded = 1;
+      }
+    } else {
+      this.unity = this.test;
+      if (this.unity != null) {
+        this.dataLoaded = 1;
+      }
+    }
 
   }
 
   onUpdate() {
-    this.unityService.getUnity(this.unity['unityId']).subscribe(resp => {
-      this.unity = resp;
+    if (this.idTest != null) {
+      this.unityService.getUnity(this.idTest).subscribe(resp => {
+        this.unity = resp;
 
-    }, error2 => {
-      console.log("not found bali")
-    });
+      }, error2 => {
+        console.log("not found bali")
+      });
+    } else {
+      this.unityService.getUnity(this.unity['unityId']).subscribe(resp => {
+        this.unity = resp;
+
+      }, error2 => {
+        console.log("not found bali")
+      });
+    }
   }
 
   onDeleteResource(id) {
@@ -89,4 +111,7 @@ export class UnityComponent implements OnInit {
 
   }
 
+  tops() {
+    window.scrollTo(0, 0);
+  }
 }

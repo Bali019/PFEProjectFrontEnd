@@ -1,77 +1,79 @@
 <ol class="breadcrumb">
   <li><a routerLink="/formation">Mes formations</a></li>
   <li><span>{{formation.formationName}}</span></li>
-  <!--<li class="active">Data</li>-->
 </ol>
+<div class="card">
+  <div class="content">
+    <h3 class="featurette-heading">Formation : {{formation.formationName}} </h3>
+    <div class="row featurette">
+      <div class="col-md-12 ">
+        <p class="category">{{formation.description}}</p>
+        <hr>
+        <!--<p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
+                      </p>-->
+        <p><span class="glyphicon glyphicon-king"></span>&ensp;Difficulté:<span class="category">&ensp;{{formation.level}} </span>
+        </p>
+        <hr>
+        <p><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
+        <table>
+          <tr>
+            <td class="category">&emsp;Date début:</td>
+            <td>&emsp;{{formation.startDate | date : 'dd/MM/yyyy'}}</td>
+          </tr>
+          <tr>
+            <td class="category">&emsp;Date fin:</td>
+            <td>&emsp;{{formation.endDate | date : 'dd/MM/yyyy'}}</td>
+          </tr>
+        </table>
+        <hr>
+        <p><span class="glyphicon glyphicon-list-alt"></span>&ensp;Les sections de la formation :  <button class="btn btn-sm btn-success" [swal]="addUnity"><i class="glyphicon glyphicon-plus"></i></button></p>
+        <ul *ngFor="let u of unities" class="list-right ">
+          <li><p class="category">{{u.unityName}}&ensp;<a class="glyphicon glyphicon-pencil" [routerLink]="['updateUnity',u.unityId]"></a></p></li>
+        </ul>
+        <div>
 
-<div class="row">
-
-
-  <div class="card">
-    <div class="col-md-12">
-      <div class="content">
-        <h3 class="featurette-heading">Formation : {{formation.formationName}} </h3>
-        <div class="ct-chart" id="chartHours">
-          <div class="row featurette">
-            <div class="col-md-12 ">
-              <p class="category">{{formation.description}}</p>
-              <hr>
-<!--              <p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
-              </p>-->
-              <p><span class="glyphicon glyphicon-king"></span>&ensp;Difficulté:<span class="category">&ensp;{{formation.level}} </span>
-              </p>
-              <hr>
-              <p><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
-              <table>
-                <tr>
-                  <td class="category">&emsp;Date début:</td>
-                  <td>&emsp;{{formation.startDate | date : 'dd/MM/yyyy'}}</td>
-                </tr>
-                <tr>
-                  <td class="category">&emsp;Date fin:</td>
-                  <td>&emsp;{{formation.endDate | date : 'dd/MM/yyyy'}}</td>
-                </tr>
-              </table>
-              <hr>
-              <p><span class="glyphicon glyphicon-list-alt"></span>&ensp;Les sections de la formation :</p>
-              <ul *ngFor="let u of unities" class="list-right ">
-                <li><p class="category">{{u.unityName}}</p></li>
-              </ul>
-              <hr>
-              <p></p>
-            </div>
-            <div class="col-md-3">
-             <ul class="list-unstyled">
-              <li>
-                <div class="row">
-                  <div class="col-xs-3">
-                    <div class="avatar">
-                      <img alt="Circle Image" class="img-circle img-no-padding img-responsive" src="assets/img/Bali.jpg">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    BALI Majdi
-                    <br>
-                    <span class="text-danger"><small>Formateur</small></span>
-                  </div>
-
-                  <div class="col-xs-3 text-right">
-                    <button class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></button>
+        </div>
+        <hr>
+        <p></p>
+        <div class="col-md-3">
+          <ul class="list-unstyled">
+            <li>
+              <div class="row">
+                <div class="col-xs-3">
+                  <div class="avatar">
+                    <img alt="Circle Image" class="img-circle img-no-padding img-responsive"
+                         src="assets/img/Bali.jpg">
                   </div>
                 </div>
-              </li>
-             </ul>
-            </div>
-          </div>
-        </div>
+                <div class="col-xs-6">
+                  BALI Majdi
+                  <br>
+                  <span class="text-danger"><small>Formateur</small></span>
+                </div>
 
+                <div>
+                  <button class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></button>
+                </div>
+              </div>
+            </li>
+            <br>
+            <li>
+            </li>
+          </ul>
+        </div>
       </div>
-<div class="col-md-12 ">
-  <hr>
-  <div class="col-md-offset-5">
-  <p><a [routerLink]="['unities']" class="btn btn-info btn-fill btn-wd" role="button">Commencer</a>
-</div>
-</div>
     </div>
   </div>
 </div>
+<div class="col-md-offset-5">
+  <a [routerLink]="['unities']" class="btn btn-info btn-fill btn-wd" role="button">Commencer</a>
+</div>
+
+<swal #addUnity
+      width=600px>
+  <div *swalPartial class="alert">
+    <div class="col-md-offset">
+      <app-add-unity></app-add-unity>
+    </div>
+  </div>
+</swal>

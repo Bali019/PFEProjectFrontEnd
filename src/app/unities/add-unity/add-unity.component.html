@@ -1,66 +1,39 @@
-<ol class="breadcrumb">
-  <li><a routerLink="/formation">Mes formations</a></li>
-  <li><span >Ajouter une formation</span></li>
-  <!--<li class="active">Data</li>-->
-</ol>
-<div class="main-content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="card card-wizard" id="wizardCard">
-          <form action="" id="wizardForm" method="" novalidate="novalidate" class="ng-untouched ng-pristine ng-valid">
-            <div class="card-header text-center">
-              <h4 class="card-title">Awesome Wizard</h4>
-              <p class="category">Split a complicated flow in multiple steps</p>
-            </div>
-            <div class="card-content">
-              <ul class="nav nav-pills">
-                <li class="active" style="width: 33.3333%;"><a data-toggle="tab" href="#tab1" aria-expanded="true">First Tab</a></li>
-                <li style="width: 33.3333%;"><a data-toggle="tab" href="#tab2">Second Tab</a></li>
-                <li style="width: 33.3333%;"><a data-toggle="tab" href="#tab3">Third Tab</a></li>
-              </ul>
-              <div class="tab-content">
-                <div class="tab-pane active" id="tab1">
-                  <h5 class="text-center">Please tell us more about yourself.</h5>
+<div class="card">
+  <div class="content">
+    <div class="row featurette">
+      <div class="col-md-12 ">
+        <p class="category"><label>Nom de la section</label><input type="text" class="form-control border-input"
+                                                                     placeholder="nom de la section"></p>
+        <br>
+        <p class="category"><label>Description</label><textarea rows="5" class="form-control border-input"
+                                                                placeholder="votre description ici..."
+                                                                name="description"></textarea></p>
+        <hr>
+        <!--<p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
+                      </p>-->
+        <p><span class="glyphicon glyphicon-filter"></span>&ensp;Type:</p>
+          <label for="Difficulté"></label>
+          <select class="form-control border-input" id="Difficulté" required="">
+            <option value="">Choose...</option>
+            <option>Chapitre</option>
+            <option>QCM</option>
+            <option>Forum</option>
+          </select>
 
-                </div>
-                <div class="tab-pane" id="tab2">
-                  <h5 class="text-center">Please give us more details about your platform.</h5>
+        <hr>
+        <p><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
 
-                </div>
-                <div class="tab-pane" id="tab3">
-                  <h2 class="text-center text-space">Yuhuuu! <br><small> 													Click on "<b>Finish</b>" to join our community</small></h2>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer">
-              <button class="btn btn-default btn-fill btn-wd btn-back pull-left disabled" type="button" style="display: none;">Back</button>
-              <button class="btn btn-info btn-fill btn-wd btn-next pull-right" type="button">Next</button>
-              <button class="btn btn-info btn-fill btn-wd btn-finish pull-right" type="button">Finish</button>
-              <div class="clearfix"></div>
-            </div>
-          </form>
-        </div>
+        <span class="category">&emsp;Date début:</span>
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="endDate" required></my-date-picker>
+
+        <span class="category">&emsp;Date fin:</span>
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="starDate" required></my-date-picker>
+        <hr>
+        <p></p>
       </div>
     </div>
   </div>
 </div>
-<!--
-<div class="row col-md-6" >
-  <div class="panel panel-default">
-    <div class="panel-heading">Add Unity</div>
-    <div class="panel-body">
-      <form #f="ngForm"> &lt;!&ndash;(ngSubmit)="onSaveUnity(f.value)"&ndash;&gt;
-        <div class="form-group">
-          <label class="control-label">Unity name: </label>
-          <input class="form-control" type="text" name="unityName" ngModel="" required/>
-        </div>
-        <div class="form-group">
-          <label class="control-label">Description: </label>
-          <input class="form-control" type="text" name="description" ngModel="" />
-        </div>
-        <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
-      </form>
-    </div>
-  </div>
-</div>-->
+<div class="col-md-offset-5">
+  <a [routerLink]="" class="btn btn-info btn-fill btn-wd" role="button">Enregistrer</a>
+</div>

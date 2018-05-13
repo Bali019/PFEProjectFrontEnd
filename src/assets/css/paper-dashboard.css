@@ -1610,12 +1610,12 @@ textarea.form-control {
   font-weight: 600;
   margin: 5px 0px;
   padding: 20px 15px;
-  font-size: 20px;
+  font-size: px;
 }
 .navbar .navbar-nav > li > a {
   line-height: 1.42857;
   margin: 15px 0px;
-  padding: 10px 15px;
+  padding: 6px 6px;
 }
 .navbar .navbar-nav > li > a i,
 .navbar .navbar-nav > li > a p {
@@ -1635,7 +1635,7 @@ textarea.form-control {
   font-size: 14px;
 }
 .navbar .btn-simple {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .navbar-nav > li > .dropdown-menu {

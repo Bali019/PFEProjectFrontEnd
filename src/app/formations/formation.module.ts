@@ -29,6 +29,7 @@ import { FormationAccueilComponent } from './formation-accueil/formation-accueil
 import { FormationContentComponent } from './formation-content/formation-content.component';
 import {NgxStepperModule} from "ngx-stepper";
 import {UnityComponent} from "../unities/unity/unity.component";
+import { FormationComponent } from './formation.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import {UnityComponent} from "../unities/unity/unity.component";
     MatDialogModule,
     SweetAlert2Module.forRoot(),
     UnitysModule,
-    NgxStepperModule
+    NgxStepperModule,/*
+    MyDatePickerModule,*/
 
   ],
   declarations: [
@@ -61,6 +63,7 @@ import {UnityComponent} from "../unities/unity/unity.component";
     FormationsListeComponent,
     FormationAccueilComponent,
     FormationContentComponent,
+    FormationComponent,
   ],
   providers: [FormationService],
 })

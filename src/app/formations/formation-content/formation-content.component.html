@@ -12,7 +12,7 @@
        [attr.aria-controls]="u.unityName"
        role="tab"
        data-toggle="tab">
-      {{u.unityName}}
+      {{(i+1)}}
     </a>
   </li>
 
@@ -22,6 +22,9 @@
   <div class="tab-pane"   *ngFor="let u of unities; let i = index"
        [attr.id]="'collapseOne2_' + i"  [ngClass]="{'active': i == 0}">
     <app-unity [test]="u"></app-unity>
+    <a [attr.href]="'#collapseOne2_' + (i+1)"
+       role="tab"
+       data-toggle="tab" (click)="tops()">Next</a>
   </div>
 </div>
 
