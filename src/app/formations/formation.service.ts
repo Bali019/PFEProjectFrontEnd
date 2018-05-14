@@ -49,5 +49,9 @@ export class FormationService {
     if (this.jwtToken == null) this.loadToken();
     return this.http.get(this.host + "/getFormations", {headers: new HttpHeaders({'Authorization': this.jwtToken})});
   }
-
+  saveFormation(formation){
+    let headers= new HttpHeaders();
+    headers.append('Authorization',this.jwtToken);
+    return this.http.post(this.host+"/createFormation",formation);
+  }
 }

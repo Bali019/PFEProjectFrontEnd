@@ -38,7 +38,7 @@ import { UpdateUnityComponent } from './update-unity/update-unity.component';
 
 
 @NgModule({
-  exports: [UnityComponent,AddUnityComponent],
+  exports: [UnityComponent,AddUnityComponent,UpdateUnityComponent],
   imports: [
     BrowserModule,
     RouterModule,

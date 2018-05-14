@@ -26,7 +26,7 @@ export class UnityService {
 
     let headers= new HttpHeaders();
     headers.append('Authorization',this.jwtToken);
-    return this.http.post(this.host+"/unities",unity);
+    return this.http.post(this.host+"/addUnity",unity,{headers: new HttpHeaders({'Authorization': this.jwtToken})});
   }
   getUnity(id) : Observable<Unity>  {
     if (this.jwtToken == null) this.loadToken();
@@ -39,5 +39,10 @@ export class UnityService {
   getFormationUnities(id) {
     if (this.jwtToken == null) this.loadToken();
     return this.http.get(this.host + "/formationUnities/"+id, {headers: new HttpHeaders({'Authorization': this.jwtToken})});
+  }
+  deleteUnity(id){
+    let headers= new HttpHeaders();
+    headers.append('Authorization',this.jwtToken);
+    return this.http.delete(this.host+"/deleteUnity/"+id)
   }
 }

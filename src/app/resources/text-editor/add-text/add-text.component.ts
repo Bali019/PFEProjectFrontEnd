@@ -10,6 +10,8 @@ import {TdMarkdownComponent} from "@covalent/markdown";
 import swal from 'sweetalert2';
 import {Unity} from "../../../models/Unity";
 import {UnityComponent} from "../../../unities/unity/unity.component";
+import {AddUnityComponent} from "../../../unities/add-unity/add-unity.component";
+import {UpdateUnityComponent} from "../../../unities/update-unity/update-unity.component";
 
 
 @Component({
@@ -30,7 +32,7 @@ export class AddTextComponent implements OnInit {
 
 
 
-  constructor(private textService: ImageService,private u : UnityComponent) {
+  constructor(private textService: ImageService,private u : UpdateUnityComponent) {
     this.unity = new Unity();
    // this.textEditor = new Resource;
 

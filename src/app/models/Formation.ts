@@ -13,6 +13,7 @@ export class Formation {
   endDate : String;
   active : Boolean;
   formationCategory : FormationCategory ;
+  level : string;
   unities : [Unity]
 
 }

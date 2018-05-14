@@ -1,3 +1,148 @@
-<p>
-  update-unity works!
-</p>
+<div *ngIf="dataLoaded==1">
+  <!--<ol class="breadcrumb">
+    <li><a routerLink="/formation">Mes formations</a></li>
+    <li><span>{{unity.unityName}}</span></li>
+    &lt;!&ndash;<li class="active">Data</li>&ndash;&gt;
+  </ol>-->
+  <div class="header">
+    <h4 class="title">{{unity.unityName}}</h4>
+    <p></p>
+    <p class="category">{{unity.description}}</p>
+  </div>
+  <div class="content all-icons">
+    <div *ngFor="let res of unity?.resource">
+
+      <div *ngIf="res?.type_res == 'text'">
+        <div class="icon-section">
+          <div class="col-md-4 offset-md-4">
+            <td><a (click)="onDeleteResource(res.resourceId)"><span class="ti-trash"></span> Delete</a></td>
+            <td> |</td>
+            <td><a [swal]="updateText"><span class="ti-pencil"></span> Update</a></td>
+          </div>
+          <app-afficher-text [textX]=res></app-afficher-text>
+          <swal #updateText
+                width=700px>
+            <div *swalPartial class="alert">
+              <div class="col-md-offset">
+                <app-add-text [unityId]="unity.unityId" [textEditor]="res"></app-add-text>
+              </div>
+            </div>
+          </swal>
+        </div> <!-- Arrows Icons -->
+      </div>
+      <div *ngIf="res?.type_res == 'image'">
+        <div class="icon-section">
+          <div class="col-md-4 offset-md-4">
+            <td><a (click)="onDeleteResource(res.resourceId)"><span class="ti-trash"></span> Delete</a></td>
+            <td> |</td>
+          </div>
+          <app-image [image]=res></app-image>
+        </div> <!-- Arrows Icons -->
+      </div>
+      <div *ngIf="res?.type_res == 'code'">
+        <div class="icon-section">
+          <div class="col-md-4 offset-md-4">
+            <td><a (click)="onDeleteResource(res.resourceId)"><span class="ti-trash"></span> Delete</a></td>
+            <td> |</td>
+            <td><a [swal]="updateCode"><span class="ti-pencil"></span> Update</a></td>
+          </div>
+          <div class="icon-section">
+            <app-afficher-code [code]=res></app-afficher-code>
+            <swal #updateCode
+                  width=700px>
+              <div *swalPartial class="alert">
+                <div class="col-md-offset">
+                  <app-add-code [unityId]="unity.unityId" [codeEditor]="res"></app-add-code>
+                </div>
+              </div>
+            </swal>
+          </div> <!-- Arrows Icons -->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="navbar-fixed-top">
+      <div class="fixed-plugin">
+        <div class="dropdown show-dropdown">
+          <a href="#" data-toggle="dropdown">
+            <i class="fa glyphicon glyphicon-edit fa-2x" style="color: #ff3100"> </i>
+          </a>
+          <ul class="dropdown-menu">
+
+            <li class="header-title">Ajouter des composants</li>
+            <li class="adjustments-line text-center">
+            </li>
+            <li class="adjustments-line text-center">
+              <button class="btn btn-default btn-block" routerLinkActive="active" [swal]="addImage">
+                <div class="icon-container">
+                  <span class="glyphicon glyphicon-picture"></span><span class="icon-name "><b>Ajouter image</b></span>
+                </div>
+              </button>
+
+            </li>
+            <li class="adjustments-line text-center">
+              <button class="btn btn-default btn-block" routerLinkActive="active" [swal]="addFile">
+                <div class="icon-container">
+                  <span class="glyphicon glyphicon-open-file"></span><span class="icon-name"><b>Ajouter fichier</b></span>
+                </div>
+              </button>
+            </li>
+            <li class="adjustments-line text-center">
+              <button class="btn btn-default btn-block" routerLinkActive="active" [swal]="addText">
+                <div class="icon-container">
+                  <span class="glyphicon glyphicon-text-size"></span><span class="icon-name"><b>Ajouter texte</b></span>
+                </div>
+              </button>
+            </li>
+            <li class="adjustments-line text-center">
+              <button class="btn btn-default btn-block" routerLinkActive="active" [swal]="addCode">
+                <div class="icon-container">
+                  <span class="glyphicon glyphicon-console"></span><span class="icon-name"><b>Ajouter code</b></span>
+                </div>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <swal #addCode
+        width=700px>
+    <div *swalPartial class="alert">
+      <div class="col-md-offset">
+        <app-add-code [unityId]="unity.unityId"></app-add-code>
+      </div>
+    </div>
+  </swal>
+  <swal #addText
+        width=700px>
+    <div *swalPartial class="alert">
+      <div class="col-md-offset">
+        <app-add-text [unityId]="unity.unityId"></app-add-text>
+      </div>
+    </div>
+  </swal>
+  <swal #addImage
+        width=700px>
+    <div *swalPartial class="alert">
+      <div class="col-md-offset">
+        <app-image-upload [unityId]="unity.unityId"></app-image-upload>
+      </div>
+    </div>
+  </swal>
+  <swal #addFile
+        width=600px>
+    <div *swalPartial class="alert">
+      <div class="col-md-offset">
+        <app-upload-file [unityId]="unity.unityId"></app-upload-file>
+      </div>
+    </div>
+  </swal>
+</div>
+
+<div class="col-md-offset-5">
+<button (click)="saveAndBack()" class="btn btn-info btn-fill btn-wd">Save</button>
+</div>
+
+

@@ -29,7 +29,7 @@ export const UnityRouting: Routes = [
       },
       {
         path: ':id',
-        component: UnityComponent,
+        component: AddUnityComponent,
         children: [
           {path: '', component: UnityComponent},
           {path: 'addText', component: AddTextComponent },

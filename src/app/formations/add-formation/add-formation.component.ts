@@ -2,6 +2,8 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormationService} from "../formation.service";
 import {IMyDpOptions} from "mydatepicker";
 import swal from 'sweetalert2';
+import {Formation} from "../../models/Formation";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-add-formation',
   templateUrl: './add-formation.component.html',
@@ -9,11 +11,19 @@ import swal from 'sweetalert2';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class AddFormationComponent implements OnInit {
+  formation : any = {}
+  startDate;
+  endDate;
+  d: Date
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dateFormat: 'dd/mm/yyyy',
   };
-  constructor() {
+  constructor(private formationService : FormationService, private router : Router) {
+    this.formation = new Formation();
+    this.d = new Date();
+    this.startDate = {date: {year: this.d.getFullYear(), month: this.d.getMonth(), day: this.d.getDay()}};
+    this.endDate = {date: {year: this.d.getFullYear(), month: this.d.getMonth(), day: this.d.getDay()}};
   }
 
   ngOnInit() {
@@ -32,17 +42,21 @@ export class AddFormationComponent implements OnInit {
       buttonsStyling: true,
       reverseButtons: true
     }).then((result) => {
-      if (result.value) {/*
-       this.resourceService.deleteResource(id).subscribe(res => {
+      if (result.value) {
+        this.formation.startDate = this.startDate.date.year + "-" + this.startDate.date.month + "-" + this.startDate.date.day;
+        this.formation.endDate = this.endDate.date.year + "-" + this.endDate.date.month + "-" + this.endDate.date.day;
+       this.formationService.saveFormation(this.formation).subscribe(res => {
        console.log(res)
-       this.onUpdate()
-       })
+         this.formation=res;
+         this.saveAndGo(this.formation.formationId);
+
+       });
+
        swal(
-       'Deleted!',
-       'Your file has been deleted.',
+       'Ajouté avec succès!',
        'success'
        )
-       */} else if (
+       } else if (
         // Read more about handling dismissals
       result.dismiss === swal.DismissReason.cancel
       ) {/*
@@ -53,7 +67,10 @@ export class AddFormationComponent implements OnInit {
         )*/
       }
     })
+  }
+  saveAndGo(f){
 
-
+    window.scrollTo(0, 0);
+    this.router.navigate(['/formation', f]);
   }
 }

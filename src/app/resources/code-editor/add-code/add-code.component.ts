@@ -7,6 +7,8 @@ import {ImageService} from "../../../../services/resourcesServices/image.service
 import swal from 'sweetalert2';
 import {UnityComponent} from "../../../unities/unity/unity.component";
 import {Unity} from "../../../models/Unity";
+import {AddUnityComponent} from "../../../unities/add-unity/add-unity.component";
+import {UpdateUnityComponent} from "../../../unities/update-unity/update-unity.component";
 @Component({
   selector: 'app-add-code',
   templateUrl: './add-code.component.html',
@@ -32,11 +34,10 @@ export class AddCodeComponent implements OnInit {
     dateFormat: 'dd/mm/yyyy',
   };
 
-  constructor(private codeService: ImageService, private u: UnityComponent) {
+  constructor(private codeService: ImageService, private u: UpdateUnityComponent) {
     this.unity = new Unity();
     this.codeEditor = new Resource
     this.d = new Date()
-    //  console.log(thi)
     this.startDate = {date: {year: this.d.getFullYear(), month: this.d.getMonth(), day: this.d.getDay()}};
     this.endDate = {date: {year: this.d.getFullYear(), month: this.d.getMonth(), day: this.d.getDay()}};
   }

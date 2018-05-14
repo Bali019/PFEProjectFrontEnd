@@ -4,6 +4,8 @@ import {User} from "../../../models/user";
 import {IMyDateModel, IMyDpOptions} from "mydatepicker";
 import swal from 'sweetalert2';
 import {UnityComponent} from "../../../unities/unity/unity.component";
+import {AddUnityComponent} from "../../../unities/add-unity/add-unity.component";
+import {UpdateUnityComponent} from "../../../unities/update-unity/update-unity.component";
 
 @Component({
   selector: 'app-upload-file',
@@ -29,7 +31,7 @@ export class UploadFileComponent implements OnInit {
   // Initialized to specific date (09.10.2018).
   //public model: any = { date: { year: 2018, month: 10, day: 9 } };
 
-  constructor(private fileService: ImageService,private u : UnityComponent) {
+  constructor(private fileService: ImageService,private u : UpdateUnityComponent) {
     this.d = new Date()
     //  console.log(thi)
     this.startDate = { date: { year: this.d.getFullYear(), month: this.d.getMonth(), day: this.d.getDay() } };

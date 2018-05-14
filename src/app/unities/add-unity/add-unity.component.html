@@ -3,17 +3,19 @@
     <div class="row featurette">
       <div class="col-md-12 ">
         <p class="category"><label>Nom de la section</label><input type="text" class="form-control border-input"
-                                                                     placeholder="nom de la section"></p>
+                                                                     placeholder="nom de la section"
+                                                                   [(ngModel)]="unity.unityName"></p>
         <br>
         <p class="category"><label>Description</label><textarea rows="5" class="form-control border-input"
                                                                 placeholder="votre description ici..."
-                                                                name="description"></textarea></p>
+                                                                name="description"
+        [(ngModel)]="unity.description"></textarea></p>
         <hr>
         <!--<p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
                       </p>-->
         <p><span class="glyphicon glyphicon-filter"></span>&ensp;Type:</p>
           <label for="Difficulté"></label>
-          <select class="form-control border-input" id="Difficulté" required="">
+          <select class="form-control border-input" id="Difficulté" [(ngModel)]="unity.type" required="">
             <option value="">Choose...</option>
             <option>Chapitre</option>
             <option>QCM</option>
@@ -27,7 +29,7 @@
         <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="endDate" required></my-date-picker>
 
         <span class="category">&emsp;Date fin:</span>
-        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="starDate" required></my-date-picker>
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="startDate" required></my-date-picker>
         <hr>
         <p></p>
       </div>
@@ -35,5 +37,5 @@
   </div>
 </div>
 <div class="col-md-offset-5">
-  <a [routerLink]="" class="btn btn-info btn-fill btn-wd" role="button">Enregistrer</a>
+  <a (click)="onSaveUnitySwall()" class="btn btn-info btn-fill btn-wd" role="button">Enregistrer</a>
 </div>

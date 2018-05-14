@@ -11,6 +11,7 @@ import {FormationAccueilComponent} from "./formation-accueil/formation-accueil.c
 import {FormationContentComponent} from "./formation-content/formation-content.component";
 import {FormationComponent} from "./formation.component";
 import {AddFormationComponent} from "./add-formation/add-formation.component";
+import {UpdateUnityComponent} from "../unities/update-unity/update-unity.component";
 
 
 export const FormationRouting: Routes = [
@@ -42,7 +43,7 @@ export const FormationRouting: Routes = [
 
       {
         path: 'updateUnity/:idU',
-        component: UnityComponent
+        component: UpdateUnityComponent
       },
 
       {
@@ -84,7 +85,10 @@ export const FormationRouting: Routes = [
         path: 'unities/:idU',
         component: UnityComponent,
       },
-
+      {
+        path: 'updateUnity/:idU',
+        component: UpdateUnityComponent
+      }
     ]
   },
 

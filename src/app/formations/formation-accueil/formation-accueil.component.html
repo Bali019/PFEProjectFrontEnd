@@ -28,7 +28,7 @@
         <hr>
         <p><span class="glyphicon glyphicon-list-alt"></span>&ensp;Les sections de la formation :  <button class="btn btn-sm btn-success" [swal]="addUnity"><i class="glyphicon glyphicon-plus"></i></button></p>
         <ul *ngFor="let u of unities" class="list-right ">
-          <li><p class="category">{{u.unityName}}&ensp;<a class="glyphicon glyphicon-pencil" [routerLink]="['updateUnity',u.unityId]"></a></p></li>
+          <li><p class="category">{{u.unityName}}&ensp;<a class="glyphicon glyphicon-pencil" [routerLink]="['updateUnity',u.unityId]"></a>&nbsp;|&nbsp;<a class="glyphicon glyphicon-trash" (click)="deleteUnity(u.unityId)"></a></p></li>
         </ul>
         <div>
 

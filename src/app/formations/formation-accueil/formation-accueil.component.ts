@@ -38,5 +38,10 @@ export class FormationAccueilComponent implements OnInit {
 
     })
   }
-
+deleteUnity(id){
+    this.unityService.deleteUnity(id).subscribe(resp => {
+      console.log(resp)
+      this.ngOnInit()
+    })
+}
 }
