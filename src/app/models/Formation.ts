@@ -1,5 +1,6 @@
 import {FormationCategory} from "./FormationCategory";
 import {Unity} from "./Unity";
+import {FormationGoal} from "./FormationGoal";
 /**
  * Created by Majdi Bali on 01/05/2018.
  */
@@ -15,5 +16,7 @@ export class Formation {
   formationCategory : FormationCategory ;
   level : string;
   unities : [Unity]
+  formationGoals : [FormationGoal]
+  videoUrl : String
 
 }

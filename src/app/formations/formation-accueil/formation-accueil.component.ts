@@ -46,6 +46,7 @@ export class FormationAccueilComponent implements OnInit {
     localStorage.setItem('idFormation',this.idFormation );
     this.formationService.getFormation(this.idFormation).subscribe(resp => {
       this.formation= resp;
+      this.safeURL = this._sanitizer.bypassSecurityTrustResourceUrl(this.formation.videoUrl);
     })
     this.unityService.getFormationUnities(this.idFormation).subscribe(resp=>{
       this.unities=resp;

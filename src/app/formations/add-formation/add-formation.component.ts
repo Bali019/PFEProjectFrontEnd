@@ -11,10 +11,15 @@ import {Router} from "@angular/router";
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class AddFormationComponent implements OnInit {
+  formationGoals = [{goal: ""}];
+
   formation : any = {}
   startDate;
   endDate;
-  d: Date
+  d: Date;
+videoUrl
+
+
   public myDatePickerOptions: IMyDpOptions = {
     // other options...
     dateFormat: 'dd/mm/yyyy',
@@ -24,9 +29,11 @@ export class AddFormationComponent implements OnInit {
     this.d = new Date();
     this.startDate = {date: {year: this.d.getFullYear(), month: this.d.getMonth(), day: this.d.getDay()}};
     this.endDate = {date: {year: this.d.getFullYear(), month: this.d.getMonth(), day: this.d.getDay()}};
+
   }
 
   ngOnInit() {
+
   }
   onClickNext() {
     swal({
@@ -45,6 +52,8 @@ export class AddFormationComponent implements OnInit {
       if (result.value) {
         this.formation.startDate = this.startDate.date.year + "-" + this.startDate.date.month + "-" + this.startDate.date.day;
         this.formation.endDate = this.endDate.date.year + "-" + this.endDate.date.month + "-" + this.endDate.date.day;
+        this.formation.formationGoals=this.formationGoals;
+       this.formation.videoUrl = "https://www.youtube.com/embed/"+this.videoUrl.substr(-11,11)
        this.formationService.saveFormation(this.formation).subscribe(res => {
        console.log(res)
          this.formation=res;
@@ -72,5 +81,8 @@ export class AddFormationComponent implements OnInit {
 
     window.scrollTo(0, 0);
     this.router.navigate(['/formation', f]);
+  }
+  addInput()  {
+    this.formationGoals.push({goal:''});
   }
 }

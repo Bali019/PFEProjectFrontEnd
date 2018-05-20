@@ -6,7 +6,8 @@
     <div class="row featurette">
       <div class="col-md-12 ">
         <p class="category"><label>Nom de la formation</label><input type="text" class="form-control border-input"
-                                                                     [(ngModel)]="formation.formationName" placeholder="nom de la formation"></p>
+                                                                     [(ngModel)]="formation.formationName"
+                                                                     placeholder="nom de la formation"></p>
         <br>
         <p class="category"><label>Description</label><textarea rows="5" class="form-control border-input"
                                                                 placeholder="votre description ici..."
@@ -17,8 +18,9 @@
                       </p>-->
         <p><span class="glyphicon glyphicon-king"></span>&ensp;Difficulté:
           <label for="Difficulté"></label>
-          <select name="level" [(ngModel)]="formation.level" class="form-control border-input" id="Difficulté" required="">
-            <option value="" >Choose...</option>
+          <select name="level" [(ngModel)]="formation.level" class="form-control border-input" id="Difficulté"
+                  required="">
+            <option value="">Choose...</option>
             <option>Facile</option>
             <option>Moyen</option>
             <option>Difficile</option>
@@ -33,13 +35,25 @@
         <span class="category">&emsp;Date fin:</span>
         <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="endDate" required></my-date-picker>
         <hr>
+        <p><span class="glyphicon glyphicon-facetime-video"></span>&ensp;Vidéo URL:</p>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">https://Youtube.com/...</span>
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3"  [(ngModel)]="videoUrl">
+        </div>
+        <hr>
         <p></p>
+        <p><span class="glyphicon glyphicon-screenshot"></span>&ensp;Les objectifs de la formation :
+          <button class="btn btn-sm btn-success" (click)="addInput()" ><i class="glyphicon glyphicon-plus"></i></button>
+        </p>
+        <div *ngFor="let input of formationGoals, let i=index"><p class="category"><label>Obejectif {{(i+1)}} </label><input type="text" [(ngModel)]="input.goal"
+                                                                                                           class="form-control border-input">
+        </p></div>
       </div>
     </div>
   </div>
 </div>
 <div class="col-md-offset-5">
-  <a (click)="onClickNext()" [routerLink]="" class="btn btn-info btn-fill btn-wd" role="button">Suivant<span class="glyphicon glyphicon-chevron-right"></span></a>
+  <a (click)="onClickNext()" [routerLink]="" class="btn btn-info btn-fill btn-wd" role="button">Save</a>
 </div>
 
 

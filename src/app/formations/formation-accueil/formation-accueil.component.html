@@ -35,20 +35,20 @@
           <!--<p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
                         </p>-->
           <hr>
-          <p><span class="glyphicon glyphicon-screenshot"></span>&ensp;Les objectifs de la formation :
-            <button class="btn btn-sm btn-success" [swal]="addUnity"><i class="glyphicon glyphicon-plus"></i></button>
-          </p>
-          <ul *ngFor="let u of unities" class="list-right ">
-            <li><p class="category">{{u.unityName}}&ensp;<a class="glyphicon glyphicon-pencil"
-                                                            [routerLink]="['updateUnity',u.unityId]"></a>&nbsp;|&nbsp;<a
-              class="glyphicon glyphicon-trash" (click)="deleteUnity(u.unityId)"></a></p></li>
-          </ul>
+          <p><span class="glyphicon glyphicon-screenshot"></span>&ensp;Les objectifs de la formation :  </p>
+          <ol class="list-right ">
+            <li *ngFor="let g of formation.formationGoals" ><p class="category">{{g.goal}}&ensp;</p></li>
+          </ol>
         </div>
         <div class="col-sm-4">
-          <p><span class="glyphicon glyphicon-king"></span>&ensp;Difficulté:<span class="category">&ensp;{{formation.level}} </span>
+          <div class="card" style="min-height: 500px; background-color: #761c19">
+            <div class="content">
+
+
+          <p style="color: white"><span class="glyphicon glyphicon-king" ></span>&ensp;Difficulté:<span style="color: black">&ensp;{{formation.level}} </span>
           </p>
           <hr>
-          <p><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
+          <p style="color: white"><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
           <table>
             <tr>
               <td class="category">&emsp;Date début:</td>
@@ -62,7 +62,7 @@
           <div>
           </div>
           <hr>
-          <p><span class="glyphicon glyphicon-list-alt"></span>&ensp;Les sections de la formation :
+          <p style="color: white"><span class="glyphicon glyphicon-list-alt"></span>&ensp;Les sections de la formation :
             <button class="btn btn-sm btn-success" [swal]="addUnity"><i class="glyphicon glyphicon-plus"></i></button>
           </p>
           <ul *ngFor="let u of unities" class="list-right ">
@@ -96,7 +96,8 @@
             <li>
             </li>
           </ul>
-
+            </div>
+          </div>
         </div>
       </div>
     </div>
