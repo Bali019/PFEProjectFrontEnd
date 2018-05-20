@@ -30,6 +30,7 @@ import { FormationContentComponent } from './formation-content/formation-content
 import {NgxStepperModule} from "ngx-stepper";
 import {UnityComponent} from "../unities/unity/unity.component";
 import { FormationComponent } from './formation.component';
+import { AddFormationPlanComponent } from './add-formation/add-formation-plan/add-formation-plan.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { FormationComponent } from './formation.component';
     FormationAccueilComponent,
     FormationContentComponent,
     FormationComponent,
+    AddFormationPlanComponent,
   ],
   providers: [FormationService],
 })

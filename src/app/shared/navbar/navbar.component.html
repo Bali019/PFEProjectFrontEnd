@@ -1,51 +1,53 @@
-<nav class="navbar navbar-inverse ">
-    <div >
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" (click)="sidebarToggle()">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar bar1"></span>
-                <span class="icon-bar bar2"></span>
-                <span class="icon-bar bar3"></span>
-            </button>
-            <a class="navbar-brand" href="#">{{getTitle()}}</a>
-        </div>
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="ti-panel"></i>
-                        <p>Stats</p>
-                    </a>
-                </li>
-<!--                <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="ti-bell"></i>
-                            <p class="notification">5</p>
-                            <p>Notifications</p>
-                            <b class="caret"></b>
-                      </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Notification 1</a></li>
-                        <li><a href="#">Notification 2</a></li>
-                        <li><a href="#">Notification 3</a></li>
-                        <li><a href="#">Notification 4</a></li>
-                        <li><a href="#">Another notification</a></li>
-                      </ul>
-                </li>-->
-                <li>
-                    <a href="#">
-                        <i class="glyphicon glyphicon-cog"></i>
-                        <p>Settings</p>
-                    </a>
-                </li>
-              <li>
-                <a href="/login" (click)="auth.logout()">
-                  <i class="glyphicon glyphicon-off"></i>
-                  <p>Logout</p>
-                </a>
-              </li>
-            </ul>
-
-        </div>
+<nav class="navbar navbar-default navbar-fixed-top  ">
+  <div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" (click)="sidebarToggle()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar bar1"></span>
+        <span class="icon-bar bar2"></span>
+        <span class="icon-bar bar3"></span>
+      </button>
+      <a class="navbar-brand" href="#">{{getTitle()}}</a>
     </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="ti-panel"></i>
+            <p>Stats</p>
+          </a>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-book"></i>
+            <p>Formation</p>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="icon-container"><a  routerLink="/formation" routerLinkActive="active">Mes formations</a></li>
+            <li class="icon-container"><a routerLink="/formationencours" routerLinkActive="active">Formations en cours</a></li>
+            <li class="icon-container"><a routerLink="" routerLinkActive="active">Formations outdated</a></li>
+            <li class="icon-container"><a routerLink="/formation/addFormation" routerLinkActive="active"> Ajouter formation</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-cog"></i>
+            <p>Settings</p>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="icon-container"><a href="/user">Profile</a></li>
+            <li class="icon-container"><a href="#">Messages</a></li>
+            <li class="icon-container"><a href="/login" (click)="auth.logout()">Logout</a></li>
+          </ul>
+        </li>
+        <li>
+          <p>&ensp;</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
 </nav>

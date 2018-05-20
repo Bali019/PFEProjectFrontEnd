@@ -12,6 +12,7 @@ import {FormationContentComponent} from "./formation-content/formation-content.c
 import {FormationComponent} from "./formation.component";
 import {AddFormationComponent} from "./add-formation/add-formation.component";
 import {UpdateUnityComponent} from "../unities/update-unity/update-unity.component";
+import {AddFormationPlanComponent} from "./add-formation/add-formation-plan/add-formation-plan.component";
 
 
 export const FormationRouting: Routes = [
@@ -25,6 +26,9 @@ export const FormationRouting: Routes = [
       }, {
         path: 'addFormation',
         component: AddFormationComponent
+      }, {
+        path: 'addFormationPlan',
+        component: AddFormationPlanComponent
       }
     ]
   },

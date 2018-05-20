@@ -1,16 +1,17 @@
 <ol class="breadcrumb">
-  <li><span >Mes formations</span></li>
+  <li><span>Mes formations</span></li>
   <!--<li class="active">Data</li>-->
 </ol>
-<div class="row">
-  <div *ngFor="let a of formations">
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail">
-        <img class="image zoom" src="assets\img\test.jpg" alt="...">
-        <div class="caption">
-          <h3>{{a.formationName}}</h3>
-          <p>{{a.description}}</p>
-          <p><a [routerLink]="[a.formationId]" class="btn btn-primary" role="button">Consulter</a>
+
+
+<div class="bs-example" data-example-id="thumbnails-with-custom-content">
+  <div class="row" >
+    <div>
+      <div class="col-sm-6 col-md-3"  *ngFor="let a of formations" >
+        <div  style="height: 360px" class="thumbnail"><img class="image zoom" src="assets\img\test.jpg" alt="...">
+          <div class="caption"><h3>{{a.formationName}}</h3>
+            <p>{{a.description | slice:0:75}}...</p>
+            <p><a [routerLink]="[a.formationId]" class="btn btn-danger" role="button">Consulter</a> </p></div>
         </div>
       </div>
     </div>

@@ -15,4 +15,6 @@ export class Unity {
   type: String;
   formation: Formation;
   resource: [Resource];
+  sections: [Unity];
+  chapter : Unity;
 }

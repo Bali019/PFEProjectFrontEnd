@@ -5,6 +5,9 @@ import {Location} from "@angular/common";
 import {FormationService} from "../formation.service";
 import {Unity} from "../../models/Unity";
 import {forEach} from "@angular/router/src/utils/collection";
+import {Observable} from "rxjs/Observable";
+import {TimerObservable} from "rxjs/observable/TimerObservable";
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-formation-accueil',
@@ -17,16 +20,27 @@ export class FormationAccueilComponent implements OnInit {
   unities : any = [Unity]
   idFormation: string
   firstU : any = []
+  x : boolean = true;
+  safeURL
+  videoURL="https://www.youtube.com/embed/HC1fKHTvwHo"
+
 
   constructor(private route: ActivatedRoute,
               private unityService: UnityService,
               private router: Router,
               private loc: Location,
-              private formationService: FormationService) {
+              private formationService: FormationService,
+              private _sanitizer: DomSanitizer) {
+
     this.firstU = new Unity();
+    this.safeURL = this._sanitizer.bypassSecurityTrustResourceUrl(this.videoURL);
   }
 
   ngOnInit() {
+    let timer = TimerObservable.create(1000, 1000);
+    timer.subscribe(t=> {
+      //console.log(t)
+      this.x=false;});
     this.idFormation = this.route.snapshot.paramMap.get('idF');
     this.formationService.setFormationId(this.idFormation);
     localStorage.setItem('idFormation',this.idFormation );
@@ -35,6 +49,7 @@ export class FormationAccueilComponent implements OnInit {
     })
     this.unityService.getFormationUnities(this.idFormation).subscribe(resp=>{
       this.unities=resp;
+
 
     })
   }

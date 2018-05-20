@@ -2,40 +2,76 @@
   <li><a routerLink="/formation">Mes formations</a></li>
   <li><span>{{formation.formationName}}</span></li>
 </ol>
-<div class="card">
-  <div class="content">
-    <h3 class="featurette-heading">Formation : {{formation.formationName}} </h3>
-    <div class="row featurette">
-      <div class="col-md-12 ">
-        <p class="category">{{formation.description}}</p>
-        <hr>
-        <!--<p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
-                      </p>-->
-        <p><span class="glyphicon glyphicon-king"></span>&ensp;Difficulté:<span class="category">&ensp;{{formation.level}} </span>
-        </p>
-        <hr>
-        <p><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
-        <table>
-          <tr>
-            <td class="category">&emsp;Date début:</td>
-            <td>&emsp;{{formation.startDate | date : 'dd/MM/yyyy'}}</td>
-          </tr>
-          <tr>
-            <td class="category">&emsp;Date fin:</td>
-            <td>&emsp;{{formation.endDate | date : 'dd/MM/yyyy'}}</td>
-          </tr>
-        </table>
-        <hr>
-        <p><span class="glyphicon glyphicon-list-alt"></span>&ensp;Les sections de la formation :  <button class="btn btn-sm btn-success" [swal]="addUnity"><i class="glyphicon glyphicon-plus"></i></button></p>
-        <ul *ngFor="let u of unities" class="list-right ">
-          <li><p class="category">{{u.unityName}}&ensp;<a class="glyphicon glyphicon-pencil" [routerLink]="['updateUnity',u.unityId]"></a>&nbsp;|&nbsp;<a class="glyphicon glyphicon-trash" (click)="deleteUnity(u.unityId)"></a></p></li>
-        </ul>
-        <div>
 
+<div class="sk-fading-circle" *ngIf="x">
+  <div class="sk-circle1 sk-circle"></div>
+  <div class="sk-circle2 sk-circle"></div>
+  <div class="sk-circle3 sk-circle"></div>
+  <div class="sk-circle4 sk-circle"></div>
+  <div class="sk-circle5 sk-circle"></div>
+  <div class="sk-circle6 sk-circle"></div>
+  <div class="sk-circle7 sk-circle"></div>
+  <div class="sk-circle8 sk-circle"></div>
+  <div class="sk-circle9 sk-circle"></div>
+  <div class="sk-circle10 sk-circle"></div>
+  <div class="sk-circle11 sk-circle"></div>
+  <div class="sk-circle12 sk-circle"></div>
+</div>
+<div class="card" *ngIf="!x">
+  <div class="content">
+    <div class="test">
+      <h3>{{formation.formationName}} </h3>
+      <div class="row featurette">
+        <div class="col-sm-8">
+
+          <div class="video-container text-center">
+            <iframe width="500" height="300" [src]='safeURL' style="border:0" allowfullscreen></iframe>
+          </div>
+          <hr>
+          <p><span class="glyphicon glyphicon-bullhorn"></span>&ensp;Description :
+          </p>
+          <p class="category">{{formation.description}}</p>
+          <p></p>
+          <!--<p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
+                        </p>-->
+          <hr>
+          <p><span class="glyphicon glyphicon-screenshot"></span>&ensp;Les objectifs de la formation :
+            <button class="btn btn-sm btn-success" [swal]="addUnity"><i class="glyphicon glyphicon-plus"></i></button>
+          </p>
+          <ul *ngFor="let u of unities" class="list-right ">
+            <li><p class="category">{{u.unityName}}&ensp;<a class="glyphicon glyphicon-pencil"
+                                                            [routerLink]="['updateUnity',u.unityId]"></a>&nbsp;|&nbsp;<a
+              class="glyphicon glyphicon-trash" (click)="deleteUnity(u.unityId)"></a></p></li>
+          </ul>
         </div>
-        <hr>
-        <p></p>
-        <div class="col-md-3">
+        <div class="col-sm-4">
+          <p><span class="glyphicon glyphicon-king"></span>&ensp;Difficulté:<span class="category">&ensp;{{formation.level}} </span>
+          </p>
+          <hr>
+          <p><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
+          <table>
+            <tr>
+              <td class="category">&emsp;Date début:</td>
+              <td>&emsp;{{formation.startDate | date : 'dd/MM/yyyy'}}</td>
+            </tr>
+            <tr>
+              <td class="category">&emsp;Date fin:</td>
+              <td>&emsp;{{formation.endDate | date : 'dd/MM/yyyy'}}</td>
+            </tr>
+          </table>
+          <div>
+          </div>
+          <hr>
+          <p><span class="glyphicon glyphicon-list-alt"></span>&ensp;Les sections de la formation :
+            <button class="btn btn-sm btn-success" [swal]="addUnity"><i class="glyphicon glyphicon-plus"></i></button>
+          </p>
+          <ul *ngFor="let u of unities" class="list-right ">
+            <li><p class="category">{{u.unityName}}&ensp;<a class="glyphicon glyphicon-pencil"
+                                                            [routerLink]="['updateUnity',u.unityId]"></a>&nbsp;|&nbsp;<a
+              class="glyphicon glyphicon-trash" (click)="deleteUnity(u.unityId)"></a></p></li>
+          </ul>
+          <hr>
+          <p></p>
           <ul class="list-unstyled">
             <li>
               <div class="row">
@@ -60,12 +96,13 @@
             <li>
             </li>
           </ul>
+
         </div>
       </div>
     </div>
   </div>
 </div>
-<div class="col-md-offset-5">
+<div class="text-center" *ngIf="!x">
   <a [routerLink]="['unities']" class="btn btn-info btn-fill btn-wd" role="button">Commencer</a>
 </div>
 

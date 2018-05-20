@@ -1,0 +1,86 @@
+<ol class="breadcrumb">
+  <li><a>Ajouter formation</a></li>
+</ol>
+
+<div class="card">
+  <div class="content">
+    <div class="row featurette">
+      <div class="col-md-12 ">
+        <p class="category"><label>Nom de la formation</label><input type="text" class="form-control border-input"
+                                                                     [(ngModel)]="formation.formationName" placeholder="nom de la formation"></p>
+        <br>
+        <p class="category"><label>Description</label><textarea rows="5" class="form-control border-input"
+                                                                placeholder="votre description ici..."
+                                                                name="description"
+                                                                [(ngModel)]="formation.description"></textarea></p>
+        <hr>
+        <!--<p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
+                      </p>-->
+        <p><span class="glyphicon glyphicon-king"></span>&ensp;Difficulté:
+          <label for="Difficulté"></label>
+          <select name="level" [(ngModel)]="formation.level" class="form-control border-input" id="Difficulté" required="">
+            <option value="" >Choose...</option>
+            <option>Facile</option>
+            <option>Moyen</option>
+            <option>Difficile</option>
+          </select>
+
+        <hr>
+        <p><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
+
+        <span class="category">&emsp;Date début:</span>
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="startDate" required></my-date-picker>
+
+        <span class="category">&emsp;Date fin:</span>
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="endDate" required></my-date-picker>
+        <hr>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
+<ol class="breadcrumb">
+  <li><a>Ajouter formation</a></li>
+</ol>
+<div class="card">
+  <div class="content">
+    <div class="row featurette">
+      <div class="col-md-12 ">
+        <p class="category"><label>Nom de la formation</label><input type="text" class="form-control border-input"
+                                                                     [(ngModel)]="formation.formationName" placeholder="nom de la formation"></p>
+        <br>
+        <p class="category"><label>Description</label><textarea rows="5" class="form-control border-input"
+                                                                placeholder="votre description ici..."
+                                                                name="description"
+                                                                [(ngModel)]="formation.description"></textarea></p>
+        <hr>
+        <!--<p><span class="glyphicon glyphicon-book"></span>&ensp;Catégorie:<span class="category">&ensp;{{formation.formationCategory.category}} </span>
+                      </p>-->
+        <p><span class="glyphicon glyphicon-king"></span>&ensp;Difficulté:
+          <label for="Difficulté"></label>
+          <select name="level" [(ngModel)]="formation.level" class="form-control border-input" id="Difficulté" required="">
+            <option value="" >Choose...</option>
+            <option>Facile</option>
+            <option>Moyen</option>
+            <option>Difficile</option>
+          </select>
+
+        <hr>
+        <p><span class="glyphicon glyphicon-hourglass"></span>&ensp;Durée:</p>
+
+        <span class="category">&emsp;Date début:</span>
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="startDate" required></my-date-picker>
+
+        <span class="category">&emsp;Date fin:</span>
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="endDate" required></my-date-picker>
+        <hr>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-offset-5">
+  <a (click)="onClickNext()" [routerLink]="" class="btn btn-info btn-fill btn-wd" role="button">Suivant<span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+
+
